@@ -1,0 +1,118 @@
+
+@startuml
+object menu {
+nombre = "Bocadillo Lomo"
+nombre = "Empanada Jamon y Queso"
+}
+
+object Bocadillo_Lomo {
+nombre = "Bocadillo Lomo"
+precio = 2
+}
+
+object Empanada_Jamon_Queso {
+nombre = "Empanada Jamon y Queso"
+precio = 1.70
+}
+
+
+object lineaPedido1 {
+plato = "Bocadillo Lomo"
+cantidadPlato = 2
+precioUnidad = 2
+precioTotal = 4
+}
+
+object lineaPedido2 {
+plato = "Empanada Jamon y Queso"
+cantidadPlato = 1
+precioUnidad = 1.70
+precioTotal = 1.70
+}
+
+object alergeno1 {
+nombre = "Gluten"
+}
+
+object alergeno2 {
+nombre = "Lactosa"
+}
+
+object Pan {
+nombre = "Pan"
+alergenos= "Sí"
+procedencia = "Horno La Parra"
+fechaEntrada = 19-11-2018
+fechaCaducidad = 19-2-2018
+cantidad = 200
+}
+
+object Lomo {
+nombre = "Lomo"
+alergenos= "No"
+procedencia = "Jamones y Embutidos Carrascal" 
+fechaEntrada = 20-11-2018
+fechaCaducidad = 25-11-2018
+cantidad en kilos = 1
+}
+
+object Masa_Hojaldre {
+nombre = "Masa de hojaldre"
+alergenos= "Sí"
+procedencia = "Horno La Parra"
+fechaEntrada = 19-11-2018
+fechaCaducidad = 19-2-2019
+cantidad = 200
+}
+
+object Jamon {
+nombre = "Jamon"
+alergenos= "No"
+procedencia = "Jamones y Embutidos Carrascal"
+fechaEntrada = 20-11-2018
+fechaCaducidad = 25-11-2018
+cantidad en kilos = 0.5
+}
+
+object Queso {
+nombre = "Queso"
+alergenos= "Sí"
+procedencia = "Sierra San Pedro La Campiña"
+fechaEntrada = 19-11-2018
+fechaCaducidad = 1-12-2018
+cantidad en kilos = 1
+}
+
+
+object pedido {
+idPedido = 4563
+precioTotal = 5.70
+fecha = 25-11-2018
+hora = 13=08
+}
+
+object Jorge_Arroyo {
+nombre = "Jorge"
+apellidos = "Arroyo"
+dni = "25893456-Y"
+nombreUsuario = "jorarr6"
+contraseña = "jorge1234"
+}
+
+
+Jorge_Arroyo -> menu : consulta
+Bocadillo_Lomo  -down-> lineaPedido1
+Empanada_Jamon_Queso -down-> lineaPedido2
+Bocadillo_Lomo -right-> Pan : se prepara con
+Bocadillo_Lomo -down-> Lomo : se prepara con
+Empanada_Jamon_Queso -up-> Masa_Hojaldre : se prepara con
+Empanada_Jamon_Queso -up-> Jamon : se prepara con
+Empanada_Jamon_Queso  -> Queso : se prepara con
+Pan -up-> alergeno1 : contiene
+Masa_Hojaldre -down-> alergeno1 : contiene
+Queso -> alergeno2 : contiene
+Jorge_Arroyo -left-> pedido : realiza
+lineaPedido1 -down-* pedido
+lineaPedido2 -* pedido
+
+@enduml

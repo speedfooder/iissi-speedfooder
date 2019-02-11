@@ -1,0 +1,75 @@
+@startuml
+class menu {
+nombrePlato : String
+}
+
+class plato {
+nombre : String
+precio : Float
+}
+
+class lineaPedido {
+plato : String
+cantidadPlato : Integer
+precioUnidad : Float
+}
+
+class proveedor {
+nombre : String
+EIN : Integer
+}
+
+class alergeno {
+nombrealergeno : String
+}
+
+class alimento {
+nombrealimento : String
+alergeno : String
+procedencia : String
+fechaEntrada : Date
+fechaCaducidad : Date
+cantidad : Integer
+}
+
+class pedido {
+dni : Integer
+precioTotal : Float
+fechahora : Timestamp
+}
+
+class consumidor {
+nombre : String
+apellidos : String
+dni : String
+nombreUsuario : String
+contraseña : String
+}
+
+menu "1" -down-> "1..*" plato : muestra
+plato "1" -right-> "1" lineaPedido : es anotado
+plato "1..*" -down-> "1..*" alimento : se prepara con
+lineaPedido "1..*" -up-* pedido 
+consumidor -> "1..*"  pedido :  realiza
+consumidor -up-> alergeno : consulta
+alimento "1" -down-> "*" alergeno : tiene
+proveedor "1" -right-> "1" alimento : distribuye 
+
+
+note "Condición de\nmuestra: no podrá\nmostrarse en menú\nningún plato cuyos\nalimentos no estén\nen stock." as condicionMuestra
+note "Pedidos sin\nduplicados: un\npedido no debe\ntener platos\nrepetidos" as pedidosSinDuplicados
+note "Cantidad mínima:\nningún alimento debe\ntener una cantidad\ninferior al stock de\nseguridad." as cantidadMinima
+note "Fecha de caducidad: la fecha\nde caducidad del\nalimento deberá ser\nmayor que la actual." as fechaCaducidad
+note "Precio mínimo con tarjeta: el pago\nmínimo para poder ser\nefectuado con tarjeta\nserá de 5€." as precioMinimoTarjeta
+
+menu .right. condicionMuestra
+lineaPedido .right. pedidosSinDuplicados
+alimento .left. cantidadMinima
+alimento .. fechaCaducidad
+pedido .right. precioMinimoTarjeta
+
+
+@enduml
+
+
+

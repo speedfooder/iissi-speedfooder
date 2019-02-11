@@ -1,0 +1,97 @@
+/* Secuencias */
+DROP SEQUENCE sec_Alergenos;
+DROP SEQUENCE sec_Alimentos;
+DROP SEQUENCE sec_Menus;
+DROP SEQUENCE sec_Pedidos;
+DROP SEQUENCE sec_Platos;
+DROP SEQUENCE sec_PlatosAlimentos;
+DROP SEQUENCE sec_LineasPedidos;
+/
+
+CREATE SEQUENCE sec_Alergenos
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999;
+
+CREATE SEQUENCE sec_Alimentos
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999;
+
+CREATE SEQUENCE sec_Menus
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999;
+
+CREATE SEQUENCE sec_Pedidos
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999;
+
+CREATE SEQUENCE sec_Platos
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999;
+
+CREATE SEQUENCE sec_PlatosAlimentos
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999;
+
+CREATE SEQUENCE sec_LineasPedidos
+INCREMENT BY 1
+START WITH 1
+MAXVALUE 9999;
+
+/* TRIGGERS ASOCIADOS A LAS SECUENCIAS ANTERIORES */
+
+CREATE OR REPLACE TRIGGER tri_sec_alergenos
+BEFORE INSERT ON alergenos
+FOR EACH ROW
+    BEGIN
+        SELECT sec_Alergenos.NEXTVAL INTO :NEW.idAlergeno FROM DUAL;
+    END;
+/    
+CREATE OR REPLACE TRIGGER tri_sec_alimentos
+BEFORE INSERT ON alimentos
+FOR EACH ROW
+    BEGIN
+        SELECT sec_Alimentos.NEXTVAL INTO :NEW.idAlimento FROM DUAL;
+    END;
+ /   
+CREATE OR REPLACE TRIGGER tri_sec_menus
+BEFORE INSERT ON menus
+FOR EACH ROW
+    BEGIN
+        SELECT sec_menus.NEXTVAL INTO :NEW.idMenu FROM DUAL;
+    END;
+  /  
+CREATE OR REPLACE TRIGGER tri_sec_pedidos
+BEFORE INSERT ON pedidos
+FOR EACH ROW
+    BEGIN
+        SELECT sec_pedidos.NEXTVAL INTO :NEW.nPedido FROM DUAL;
+    END;
+   / 
+CREATE OR REPLACE TRIGGER tri_sec_platos
+BEFORE INSERT ON platos
+FOR EACH ROW
+    BEGIN
+        SELECT sec_Platos.NEXTVAL INTO :NEW.idPlato FROM DUAL;
+    END;
+    /
+CREATE OR REPLACE TRIGGER tri_sec_platosalimentos
+BEFORE INSERT ON platosalimentos
+FOR EACH ROW
+    BEGIN
+        SELECT sec_PlatosAlimentos.NEXTVAL INTO :NEW.idPlatoAlimento FROM DUAL;
+    END;
+    
+    /
+CREATE OR REPLACE TRIGGER tri_sec_LineasPedidos
+BEFORE INSERT ON lineaspedidos
+FOR EACH ROW
+    BEGIN
+        SELECT sec_LineasPedidos.NEXTVAL INTO :NEW.idlineapedido FROM DUAL;
+    END;
+

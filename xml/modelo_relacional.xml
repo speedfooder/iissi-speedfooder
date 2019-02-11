@@ -1,0 +1,58 @@
+@startuml
+object Menu {
+idMenu
+nombrePlato
+}
+
+object Platos {
+idPlato
+nombre
+precio
+}
+
+object LineasPedido {
+idLineaPedido
+nombrePlato
+precioTotal
+}
+
+object Pedidos {
+idPedido
+precioTotal
+fecha
+hora
+}
+
+object Proveedores {
+ein
+nombre
+}
+
+object Alimentos {
+idAlimento
+nombre
+procedencia
+fechaEntrada
+fechaCaducidad
+cantidad
+alergeno
+}
+
+object Alergenos {
+idAlergenos
+nombre
+}
+
+object Consumidores {
+dni
+nombre
+apellidos
+usuario
+contraseña
+nPedidosRealizados
+nPedidoActual
+}
+
+Consumidores::nPedidoActual }-- Pedidos::idPedido
+
+@enduml
