@@ -1,3 +1,37 @@
 body{
 	background-color: #ffffc9;
 }
+
+div {
+   text-align: center;
+}
+
+table {
+  background: transparent;
+}
+
+.column1 {
+  text-align: right;
+}
+
+.column2 {
+  text-align: left;
+}
+
+.btn {
+  background:transparent;
+  border: none;
+  padding:0px;
+  width: 40%;
+  height: 40%;
+}
+
+.btn:hover {
+   box-shadow: 0 12px 16px 0 rgb(102, 82, 0), 0 17px 50px 0 rgb(102, 82, 0);
+   color:grey;
+}
+
+img {
+   max-width:100%;
+   max-height:100%;
+}
