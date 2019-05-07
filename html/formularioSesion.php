@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio de Sesión</title>
-    
+    <link rel="stylesheet" type="text/css" href="./signinform.css">
 </head>
 <body>
     
