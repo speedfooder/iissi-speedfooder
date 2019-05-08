@@ -1,13 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: helvetica Neue;
+    font-weight: lighter;
+    
+}
+
 body{
     background-color: #7c6e59;
 }
 
-.formulario{
+section#formulario{
+    width: 400px;
+    min-height: 100 px;
     background-color: white;
-    align-content: center;
-    align-items: center;
-    align-self: center;
-    border-radius: 5px;
-    width: 80%;
+    overflow: hidden;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -150px;
+}
+
+p#titulo{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10px;
+    padding-bottom: 5px;
+}
+
+input[type="text"], input[type="mail"], input[type="password"]{
+    width: 75%;
+    margin-left: 10%;
+    height: 5%;
+    margin-top: 5px;
+    padding-left: 5%;
+    font-size: 15px;
+    outline: none;
+    border: 0px;
+    background-color: floralwhite;
+    border-radius: 3px;
+}
+
+input[type="submit"]{
+    margin: 10%;
+    
+    width: 75%;
+    height: 30px;
+    outline: none;
+    border-radius: 7px;
+    background-color: #daf4be;
     
 }
