@@ -7,8 +7,8 @@
 </head>
 <body>
   <div class="d-inicio">
-    <a href="index.html"><button class="btn-main-icon"><img src="../images/speedfooder-icon.png"></button>
-    </a>
+    <button class="btn-main-icon" ><a href="index.html"><img src="../images/speedfooder-icon.png"></a></button>
+    
   </div>
 <section id="formulario">
 <p id="titulo">Regístrate</p>

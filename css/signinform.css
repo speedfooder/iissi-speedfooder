@@ -58,8 +58,8 @@ input[type="submit"]{
 .btn-main-icon {
   background: transparent;
   border: none;
-  width: 4%;
-  height: 4%;
+  width: auto;
+  height: auto;
 }
 
 .p-inicio {
