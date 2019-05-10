@@ -3,9 +3,13 @@
     <meta charset="UTF-8">
     <title>Inicio de Sesión</title>
     <link rel="stylesheet" type="text/css" href="../css/signinform.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Overpass" rel="stylesheet">
 </head>
 <body>
-    
+  <div class="d-inicio">
+    <a href="index.html"><button class="btn-main-icon"><img src="../images/speedfooder-icon.png"></button>
+    </a>
+  </div>
 <section id="formulario">
 <p id="titulo">Regístrate</p>
   <form action="action_registro.php" method="post">

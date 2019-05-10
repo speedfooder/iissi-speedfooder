@@ -28,6 +28,7 @@ p#titulo{
     font-size: 40px;
     margin-top: 10px;
     padding-bottom: 5px;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 input[type="text"], input[type="mail"], input[type="password"]{
@@ -52,4 +53,23 @@ input[type="submit"]{
     border-radius: 7px;
     background-color: #daf4be;
     
+}
+
+.btn-main-icon {
+  background: transparent;
+  border: none;
+  width: 4%;
+  height: 4%;
+}
+
+.p-inicio {
+	font-family: 'Overpass', sans-serif;
+	font-size: 100%;
+	text-transform: uppercase;
+	display:inline-block;
+	text-align: right;
+	text-transform: uppercase;
+	color: #efdfc4;
+	letter-spacing: 3px;
+    padding-top: 3px;
 }
