@@ -90,6 +90,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  height: auto;
   background-color: #3f3532;
 }
 
@@ -108,4 +109,25 @@ li a {
 /* Change the link color to #47403e on hover */
 li a:hover {
   background-color: #47403e;
+}
+
+.btn-pedido {
+  background-color:#5e4e4b;
+  color: white;
+  border-radius: 8px;
+}
+
+.btn-pedido:hover {
+  background-color: #938f88;
+  color: black;
+  border: 2px solid #5e4e4b;
+}
+
+.pedido {
+  float: right;
+}
+
+.pedido:hover {
+  background-color: #e0c89a;
+  color: #5e4e4b;
 }
