@@ -70,7 +70,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 	<div>
 		<ul>
  			
-			<li class = "pedido"><?php
+			<li class = "pagina"><?php
 
 				for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
 
@@ -82,7 +82,8 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 						<a href="menu.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
-			<?php } ?><a class = "pedido" href="#">¡Haz tu pedido!</a></li>
+			<?php } ?></li>
+			<li class = "pedido"><a  href="#">¡Haz tu pedido!</a></li>
 			
 		</ul>
   </div>

@@ -125,9 +125,28 @@ li a:hover {
 
 .pedido {
   float: right;
+  display: inline;
 }
 
 .pedido:hover {
   background-color: #e0c89a;
   color: #5e4e4b;
+}
+
+.pagina {
+	overflow: auto;
+}
+
+.current {
+	display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+	display: inline;
+	float:left;
+}
+
+.current:hover {
+background-color: #47403e;
 }
