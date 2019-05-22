@@ -29,11 +29,11 @@
 }
 
   
-function consultarUsuario($conexion,$email,$pass) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE EMAIL=:email AND PASS=:pass";
+function consultarUsuario($conexion,$usuario,$contrasena) {
+ 	$consulta = "SELECT COUNT(*) AS TOTAL FROM CONSUMIDORES WHERE USUARIO=:usuario AND CONTRASENA=:contrasena";
 	$stmt = $conexion->prepare($consulta);
-	$stmt->bindParam(':email',$email);
-	$stmt->bindParam(':pass',$pass);
+	$stmt->bindParam(':usuario',$usuario);
+	$stmt->bindParam(':contrasena',$contrasena);
 	$stmt->execute();
 	return $stmt->fetchColumn();
 }
