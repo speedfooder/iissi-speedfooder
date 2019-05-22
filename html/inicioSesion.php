@@ -15,7 +15,7 @@
 <p id="titulo">Inicia Sesión</p>
   <form action="action_login.php" method="post">
       
-      <input type="text" id="Usuario" name="Usuario" size="40" placeholder="Inventa un usuario chachi">
+      <input type="text" id="Usuario" name="Usuario" size="40" placeholder="Escribe tu usuario">
       <input type="password" id="Contraseña" name="Contraseña" size="40" placeholder="Escribe tu contraseña super secreta">
       
       
