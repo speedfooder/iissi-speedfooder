@@ -30,6 +30,10 @@ $conexion = crearConexionBD();
 
 $query="SELECT IDPLATO, NOMBRE, PRECIO FROM PLATOS"
 		. " ORDER BY NOMBRE";
+		
+$query2= "SELECT NOMBREALIMENTO FROM ALIMENTOS,PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=4 "
+							."AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO";
+							
 
 $total_registros = total_consulta($conexion, $query);
 $total_paginas = (int)($total_registros / $pag_tam);
@@ -131,7 +135,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 				<div>
 
-						<!-- mostrando título -->
+						<!-- mostrando plato -->
 
 						<!-- <input id="TITULO" name="TITULO" type="hidden" value="<?php echo $fila["TITULO"]; ?>"/> -->
 
@@ -139,7 +143,37 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 						<div>precio: <em><?php echo $fila["PRECIO"]; ?></em></div>
 
+						<div id="botones_fila">
+
 				
+
+						<div class="popup" onclick="myFunction()">Click aquí para ver tus alimentos!
+							<span class="popuptext" id="myPopup"><?php
+							
+							
+							echo $query2;
+							;?></span>
+							
+						</div>
+						
+							
+							
+
+						
+
+				
+
+						<button id="alergenos" name="alergenos" type="submit" class="mostrar_alergenos">
+
+							<img src="images/gluten.png" class="menubutton" alt="Mostrar Alergenos">
+
+						</button>
+
+				
+
+					
+
+				</div>
 
 				</div>
 
@@ -154,7 +188,13 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 	<?php } ?>
 
-	
+	<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
 
 </body>
 </html>
