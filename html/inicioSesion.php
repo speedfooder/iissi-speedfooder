@@ -47,8 +47,10 @@
 <p id="titulo">Inicia Sesión</p>
   <form action="inicioSesion.php" method="post">
       
+
       <input type="text" id="Usuario" name="usuario" size="40" placeholder="Introduce tu usuario">
       <input type="password" id="Contraseña" name="contrasena" size="40" placeholder="Escribe tu contraseña secreta">
+
       
       
       <input type="submit" name="submit" value="¡INICIA SESIÓN!">

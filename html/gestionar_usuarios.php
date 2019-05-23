@@ -7,16 +7,16 @@
      */
 
  function alta_usuario($conexion,$usuario) {
-	$consulta = "CALL crea_cliente(:dni, :nombre, :apellidos, :email, :usuario, :contrasena)";
+	$consulta = "CALL CREA_CLIENTE(:w_dni, :w_nombre, :w_apellidos, :w_email, :w_usuario, :w_contrasena)";
 
 	try {
 		$stmt=$conexion->prepare($consulta);
-		$stmt->bindParam(':dni',$usuario["dni"]);
-		$stmt->bindParam(':nombre',$usuario["nombre"]);
-		$stmt->bindParam(':apellidos',$usuario["apellidos"]);
-		$stmt->bindParam(':email',$usuario["email"]);
-		$stmt->bindParam(':usuario',$usuario["usuario"]);
-		$stmt->bindParam(':contrasena',$usuario["contrasena"]);
+		$stmt->bindParam(':w_dni',$usuario["dni"]);
+		$stmt->bindParam(':w_nombre',$usuario["nombre"]);
+		$stmt->bindParam(':w_apellidos',$usuario["apellidos"]);
+		$stmt->bindParam(':w_email',$usuario["email"]);
+		$stmt->bindParam(':w_usuario',$usuario["usuario"]);
+		$stmt->bindParam(':w_contrasena',$usuario["contrasena"]);
 		
 		$stmt->execute();
 		
