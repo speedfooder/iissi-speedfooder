@@ -10,6 +10,7 @@ body {
 
 .menu-section {
   margin-bottom: 80px;
+  font-family: 'Overpass', sans-serif;
 }
 
 .menu-section-title {
@@ -126,6 +127,7 @@ li a:hover {
 .pedido {
   float: right;
   display: inline;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 .pedido:hover {
@@ -138,15 +140,20 @@ li a:hover {
 }
 
 .current {
-	display: block;
+  font-family: 'Overpass', sans-serif;
+  display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-	display: inline;
-	float:left;
+  float:left;
 }
 
 .current:hover {
 background-color: #47403e;
+}
+
+.plato {
+	font-family: 'Overpass', sans-serif;
+	color: #fcf2e0;
 }

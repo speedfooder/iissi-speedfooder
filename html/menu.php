@@ -109,7 +109,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 			entradas de <?php echo $total_registros?>
 
-			<input type="submit" value="Cambiar">
+			<input type="submit" style="font-family: 'Overpass', sans-serif;" value="Cambiar">
 
 			</form>
 		</div>
@@ -123,21 +123,21 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 
 
-	<article class="libro">
+	<article class="plato">
 
 		<form method="post" action="controlador_platos.php">
 
-			<div class="fila_libro">
+			<div>
 
-				<div class="datos_libro">
+				<div>
 
 						<!-- mostrando título -->
 
 						<!-- <input id="TITULO" name="TITULO" type="hidden" value="<?php echo $fila["TITULO"]; ?>"/> -->
 
-						<div class="titulo"><b><?php echo $fila["NOMBRE"]; ?></b></div>
+						<div><b><?php echo $fila["NOMBRE"]; ?></b></div>
 
-						<div class="autor">costs: <em><?php echo $fila["PRECIO"]; ?></em></div>
+						<div>precio: <em><?php echo $fila["PRECIO"]; ?></em></div>
 
 				
 
