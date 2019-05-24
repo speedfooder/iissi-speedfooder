@@ -31,8 +31,7 @@ $conexion = crearConexionBD();
 $query="SELECT IDPLATO, NOMBRE, PRECIO FROM PLATOS"
 		. " ORDER BY NOMBRE";
 		
-$query2= "SELECT NOMBREALIMENTO FROM ALIMENTOS,PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=4 "
-							."AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO";
+
 							
 
 $total_registros = total_consulta($conexion, $query);
@@ -148,26 +147,31 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				
 
 						<div class="popup" onclick="myFunction()">Click aquí para ver tus alimentos!
-							<span class="popuptext" id="myPopup"><?php
+							<span class="popuptext" id="Popupalimentos"><?php
+							$conexion2=crearConexionBD();
+							$query2= "SELECT DISTINCT NOMBREALIMENTO FROM ALIMENTOS,PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=4 "
+							."AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO";
+							$alimentos=consulta_alimentos($conexion2,$query2);
+							$cadena="";
 							
+							$longitud = count($alimentos);
 							
-							echo $query2;
+							foreach($alimentos as $aliment)
+								 {
+								  foreach(array_unique($aliment) as $a) {
+									echo $a . ", ";
+								  }
+								  
+								}
 							;?></span>
 							
 						</div>
 						
-							
-							
-
-						
-
 				
-
-						<button id="alergenos" name="alergenos" type="submit" class="mostrar_alergenos">
-
-							<img src="images/gluten.png" class="menubutton" alt="Mostrar Alergenos">
-
-						</button>
+						<div class="popup" onclick="FunctionAlerg()">Click aquí para ver alergenos!
+							<span class="popuptext" id="Popupalerg">"fuckyea"</span>
+							
+						</div>
 
 				
 
@@ -188,10 +192,15 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 	<?php } ?>
 
-	<script>
+<script>
 // When the user clicks on div, open the popup
 function myFunction() {
-  var popup = document.getElementById("myPopup");
+  var popup = document.getElementById("Popupalimentos");
+  popup.classList.toggle("show");
+}
+
+function FunctionAlerg() {
+  var popup = document.getElementById("Popupalerg");
   popup.classList.toggle("show");
 }
 </script>
