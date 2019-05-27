@@ -1,0 +1,12 @@
+body{
+    background-color: #7c6e59;
+}
+
+.bienvenida{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    font-family: 'Barlow Condensed', sans-serif;
+	color: #efdfc4;
+}
