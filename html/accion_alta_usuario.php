@@ -28,10 +28,10 @@
 
 
 	<main>
-		<?php if (alta_usuario($conexion, $nuevoUsuario)) { 
-				$_SESSION['login'] = $nuevoUsuario['email'];
+		<?php if (alta_usuario($conexion, $_POST)) { 
+				$_SESSION['login'] = $_POST['email'];
 		?>
-				<h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
+				<h1>Hola <?php echo $_POST["nombre"]; ?>, gracias por registrarte</h1>
 				<div >	
 			   		Pulsa <a href="index.html">aquí</a> para acceder a tu restaurante favorito.
 				</div>
