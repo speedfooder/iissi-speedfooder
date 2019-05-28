@@ -1,5 +1,6 @@
 body {
   background-color: #7c6e59;
+  
 }
 
 .menu-body {
@@ -156,6 +157,7 @@ background-color: #47403e;
 .plato {
 	font-family: 'Overpass', sans-serif;
 	color: #fcf2e0;
+	padding-bottom: 5%;
 }
 
 /* The actual popup */
@@ -211,4 +213,17 @@ background-color: #47403e;
 @keyframes fadeIn {
   from {opacity: 0;}
   to {opacity:1 ;}
+}
+
+table {
+	height: 100%;
+	width:100%;
+}
+
+th {
+padding-left:5%;
+padding-right:5%;
+border-bottom: 2px solid #fcf2e0;
+text-align: center;
+width: 20%;
 }

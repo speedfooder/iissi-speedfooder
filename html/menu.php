@@ -126,23 +126,28 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 
 
-	<article class="plato">
+	<article >
 
-		<form method="post" action="controlador_platos.php">
+		<form method="post" class="plato" action="controlador_platos.php">
 
 			<div>
-
-				<div>
+				
+				<table>
+				<tr>
+				<th>
 
 						<!-- mostrando plato -->
 
 						<!-- <input id="TITULO" name="TITULO" type="hidden" value="<?php echo $fila["IDPLATO"]; ?>"/> -->
 
 						<div><b><?php echo $fila["NOMBRE"]; ?></b></div>
-
-						<div>precio: <em><?php echo $fila["PRECIO"]; ?></em></div>
-
+				<th>
+						<div><em><?php echo $fila["PRECIO"]; ?></em>€</div>
+				</th>
+				</th>
+				<th>
 						<div>
+						
 						<div class="popup" onclick="myFunction(<?php echo $fila["IDPLATO"];?>)">Alimentos
 							<span class="popuptext" id=<?php echo "Popupalimentos".$fila["IDPLATO"];?>><?php
 							$platoSeleccionado = $fila["IDPLATO"];
@@ -163,7 +168,8 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 							;?></span>
 							
 						</div>
-						
+					</th>
+					<th>
 				
 						<div class="popup" onclick="FunctionAlerg(<?php echo $fila["IDPLATO"];?>)">Alergenos
 							<span class="popuptext" id=<?php echo "Popupalerg".$fila["IDPLATO"];?>>
@@ -186,7 +192,8 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 							
 						</div>
 				</div>
-				
+				</th>
+				<th>
 				<div id="botones_fila">
 
 				<?php if (isset($libro) and ($libro["OID_LIBRO"] == $fila["OID_LIBRO"])) { ?>
@@ -214,8 +221,9 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 					</button>
 
 				</div>
-
-				</div>
+				</th>
+				</tr>
+				</table>
 
 
 			</div>
