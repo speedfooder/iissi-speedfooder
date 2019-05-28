@@ -12,11 +12,14 @@
 		$num_usuarios = consultarUsuario($conexion,$usuario,$contrasena);
 		cerrarConexionBD($conexion);	
 	
-		if ($num_usuarios == 0)
-			$login = "error";	
-		else {
+		if ($num_usuarios==true){
 			$_SESSION['login'] = $usuario;
 			Header("Location: menu.html");
+			
+		}
+				
+		else {
+			$login = "error";
 		}	
 	}
 

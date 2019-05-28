@@ -30,11 +30,30 @@
 
   
 function consultarUsuario($conexion,$usuario,$contrasena) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM CONSUMIDORES WHERE USUARIO=:usuario AND CONTRASENA=:contrasena";
+	try{
+	echo $usuario ."\n";
+	echo $contrasena."\n";
+ 	$consulta = "SELECT DNI FROM CONSUMIDORES WHERE USUARIO=:usuario AND CONTRASENA=:contrasena";
 	$stmt = $conexion->prepare($consulta);
-	$stmt->bindParam(':usuario',$usuario);
-	$stmt->bindParam(':contrasena',$contrasena);
+	$stmt->bindParam(':usuario',$usuario,PDO::PARAM_STR);
+	$stmt->bindParam(':contrasena',$contrasena,PDO::PARAM_STR);
 	$stmt->execute();
-	return $stmt->fetchColumn();
+	//echo $stmt ."\n";
+	$count=$stmt->rowCount();
+	$data=$stmt->fetch(PDO::FETCH_OBJ);
+	echo $count;
+	if($count>0)
+	{
+	$_SESSION['uid']=$data->uid; // Storing user session value
+	return true;
+	}
+	else
+	{
+	return false;
+	} 
+	}
+	catch(PDOException $e) {
+	echo '{"error":{"text":'. $e->getMessage() .'}}';
+	}
 }
 
