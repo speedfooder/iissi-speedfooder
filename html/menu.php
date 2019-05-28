@@ -143,8 +143,8 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						<div>precio: <em><?php echo $fila["PRECIO"]; ?></em></div>
 
 						<div>
-						<div class="popup" onclick="myFunction()">Alimentos
-							<span class="popuptext" id="Popupalimentos"><?php
+						<div class="popup" onclick="myFunction(<?php echo $fila["IDPLATO"];?>)">Alimentos
+							<span class="popuptext" id=<?php echo "Popupalimentos".$fila["IDPLATO"];?>><?php
 							$platoSeleccionado = $fila["IDPLATO"];
 							$conexion2=crearConexionBD();
 							$query2= "SELECT DISTINCT NOMBREALIMENTO FROM ALIMENTOS,PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=" . $platoSeleccionado
@@ -165,12 +165,13 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						</div>
 						
 				
-						<div class="popup" onclick="FunctionAlerg()">Alergenos
-							<span class="popuptext" id="Popupalerg">
+						<div class="popup" onclick="FunctionAlerg(<?php echo $fila["IDPLATO"];?>)">Alergenos
+							<span class="popuptext" id=<?php echo "Popupalerg".$fila["IDPLATO"];?>>
 							<?php
 							$conexion3=crearConexionBD();
-							$query3= "SELECT DISTINCT NOMBREALERGENO FROM ALIMENTOS,ALERGENOS, PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=5 "
-							."AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND ALIMENTOS.ALERGENO = ALERGENOS.IDALERGENO";
+							$query3= "SELECT DISTINCT NOMBREALERGENO FROM ALIMENTOS,ALERGENOS, PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=" 
+							. $fila["IDPLATO"]
+							." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND ALIMENTOS.ALERGENO = ALERGENOS.IDALERGENO";
 							$alergenos=consulta_alimentos($conexion3,$query3);
 							foreach($alergenos as $alergen)
 								 {
@@ -229,13 +230,15 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 <script>
 // When the user clicks on div, open the popup
-function myFunction() {
-  var popup = document.getElementById("Popupalimentos");
+function myFunction(n) {
+  var nombre="Popupalimentos"+n;
+  var popup = document.getElementById(nombre);
   popup.classList.toggle("show");
 }
 
-function FunctionAlerg() {
-  var popup = document.getElementById("Popupalerg");
+function FunctionAlerg(k) {
+	var nombre2="Popupalerg"+k;
+  var popup = document.getElementById(nombre2);
   popup.classList.toggle("show");
 }
 </script>
