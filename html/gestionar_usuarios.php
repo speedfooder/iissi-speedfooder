@@ -33,44 +33,28 @@ function consultarUsuario($conexion,$usuario,$contrasena) {
 	try{
 	echo $usuario ."\n";
 	echo $contrasena."\n";
- 	$consulta = "SELECT DNI FROM CONSUMIDORES WHERE USUARIO=:usuario AND CONTRASENA=:contrasena";
+	$consulta ='SELECT CASE WHEN MAX(DNI) IS NULL THEN 0 ELSE 1 END User_exists FROM CONSUMIDORES WHERE USUARIO=:usuario AND CONTRASENA=:contrasena';
 	$stmt = $conexion->prepare($consulta);
-	$stmt->bindParam(':usuario',$usuario,PDO::PARAM_STR);
-	$stmt->bindParam(':contrasena',$contrasena,PDO::PARAM_STR);
+	$stmt->bindParam(':usuario',$usuario);
+	$stmt->bindParam(':contrasena',$contrasena);
 	$stmt->execute();
-	//echo $stmt ."\n";
-	$count=$stmt->rowCount();
+	$count=$stmt->fetchColumn();
+	echo $count."\n";
 	$data=$stmt->fetch(PDO::FETCH_OBJ);
-	echo $count;
-	if($count>0)
-	{
-	$_SESSION['dni']=$data->dni; // Storing user session value
-	return true;
-	}
-	else
-	{
-	return false;
-	} 
+	return $count;
 	}
 	catch(PDOException $e) {
 	echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
 }
 
-function consultarUsuario2($conexion,$usuario,$contrasena) {
-	$consulta = "SELECT DNI FROM CONSUMIDORES WHERE USUARIO=:w_usuario AND CONTRASENA=contrasena";
-	
-	try {
-		$stmt=$conexion->prepare($consulta);
-		$stmt->bindParam(':w_usuario',$usuario, PDO::PARAM_STR);
-		$stmt->bindParam(':w_contrasena',$contrasena, PDO::PARAM_STR);
-		$stmt->execute();
-		return $stmt -> rowCount();
-	} catch(PDOException $e) {
-		$e -> getMessage();
-		print_r($e -> getMessage());
-		return 0;
-		
-    }
+function consultarUsuario2($conexion,$email,$pass) {
+ 	$consulta = "SELECT COUNT(*) AS TOTAL FROM CONSUMIDORES WHERE USUARIO=:email AND contrasena=:pass";
+	$stmt = $conexion->prepare($consulta);
+	$stmt->bindParam(':email',$email);
+	$stmt->bindParam(':pass',$pass);
+	$stmt->execute();
+	return $stmt->fetchColumn();
 }
+
 

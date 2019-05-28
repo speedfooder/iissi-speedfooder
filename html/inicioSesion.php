@@ -11,7 +11,7 @@
 		$conexion = crearConexionBD();
 		$num_usuarios = consultarUsuario2($conexion,$usuario,$contrasena);
 		cerrarConexionBD($conexion);	
-	
+		
 		if ($num_usuarios > 0){
 			$_SESSION['login'] = $usuario;
 			Header("Location: menu.html");
