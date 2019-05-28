@@ -98,7 +98,7 @@ execute addAlimento('Lechuga', 4, null, DATE '2019-01-20', DATE '2019-01-30', 10
 execute addAlimento('Cebolla', 4, null, DATE '2019-01-20', DATE '2019-01-30', 100);
 execute addAlimento('Tomate', 4, null, DATE '2019-01-20', DATE '2019-01-30', 100);
 execute addAlimento('Pimiento verde', 5, null, DATE '2019-01-20', DATE '2019-01-30', 100);
-execute addAlimento('Queso en lonchas', 3, 12, DATE '2019-01-25', DATE '2019-02-05', 100);
+execute addAlimento('Queso en lonchas', 3, 6, DATE '2019-01-25', DATE '2019-02-05', 100);
 execute addAlimento('Pollo - Plancha', 5, null, DATE '2019-02-01', DATE '2019-02-25', 50);
 execute addAlimento('Pollo - Empanado', 5, null, DATE '2019-02-01', DATE '2019-02-25', 50);
 
@@ -111,13 +111,36 @@ execute elimina_alimento_de_plato(4, 6);
 execute elimina_alimento_de_plato(4, 8);
 execute elimina_alimento_de_plato(4, 18);
 
-execute añade_alimento_en_plato(2, 2);
-execute añade_alimento_en_plato(2, 6);
-execute añade_alimento_en_plato(4, 2);
-execute añade_alimento_en_plato(4, 6);
-execute añade_alimento_en_plato(4, 8);
-execute añade_alimento_en_plato(4, 18);
-
+execute añade_alimento_en_plato(1, 1);
+execute añade_alimento_en_plato(1, 3);
+execute añade_alimento_en_plato(2, 1);
+execute añade_alimento_en_plato(2, 3);
+execute añade_alimento_en_plato(2, 4);
+execute añade_alimento_en_plato(2, 9);
+execute añade_alimento_en_plato(3, 1);
+execute añade_alimento_en_plato(3, 6);
+execute añade_alimento_en_plato(3, 8);
+execute añade_alimento_en_plato(3, 7);
+execute añade_alimento_en_plato(3, 14);
+execute añade_alimento_en_plato(4, 1);
+execute añade_alimento_en_plato(4, 4);
+execute añade_alimento_en_plato(4, 14);
+execute añade_alimento_en_plato(5, 1);
+execute añade_alimento_en_plato(5, 5);
+execute añade_alimento_en_plato(5, 14);
+execute añade_alimento_en_plato(6, 1);
+execute añade_alimento_en_plato(6, 11);
+execute añade_alimento_en_plato(7, 1);
+execute añade_alimento_en_plato(7, 12);
+execute añade_alimento_en_plato(8, 1);
+execute añade_alimento_en_plato(8, 4);
+execute añade_alimento_en_plato(9, 7);
+execute añade_alimento_en_plato(9, 8);
+execute añade_alimento_en_plato(9, 9);
+execute añade_alimento_en_plato(9, 2);
+execute añade_alimento_en_plato(10, 2);
+execute añade_alimento_en_plato(9, 4);
+execute añade_alimento_en_plato(9, 14);
 
 /* PEDIDO */
 execute elimina_pedido(2);
