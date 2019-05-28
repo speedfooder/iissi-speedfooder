@@ -136,26 +136,23 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 						<!-- mostrando plato -->
 
-						<!-- <input id="TITULO" name="TITULO" type="hidden" value="<?php echo $fila["TITULO"]; ?>"/> -->
+						<!-- <input id="TITULO" name="TITULO" type="hidden" value="<?php echo $fila["IDPLATO"]; ?>"/> -->
 
 						<div><b><?php echo $fila["NOMBRE"]; ?></b></div>
 
 						<div>precio: <em><?php echo $fila["PRECIO"]; ?></em></div>
 
-						<div id="botones_fila">
-
-				
-
-						<div class="popup" onclick="myFunction()">Click aquí para ver tus alimentos!
+						<div>
+						<div class="popup" onclick="myFunction()">Alimentos
 							<span class="popuptext" id="Popupalimentos"><?php
+							$platoSeleccionado = $fila["IDPLATO"];
 							$conexion2=crearConexionBD();
-							$query2= "SELECT DISTINCT NOMBREALIMENTO FROM ALIMENTOS,PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=4 "
-							."AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO";
+							$query2= "SELECT DISTINCT NOMBREALIMENTO FROM ALIMENTOS,PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=" . $platoSeleccionado
+							." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO";
 							$alimentos=consulta_alimentos($conexion2,$query2);
 							$cadena="";
 							
 							$longitud = count($alimentos);
-							
 							foreach($alimentos as $aliment)
 								 {
 								  foreach(array_unique($aliment) as $a) {
@@ -168,14 +165,52 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						</div>
 						
 				
-						<div class="popup" onclick="FunctionAlerg()">Click aquí para ver alergenos!
-							<span class="popuptext" id="Popupalerg">"fuckyea"</span>
+						<div class="popup" onclick="FunctionAlerg()">Alergenos
+							<span class="popuptext" id="Popupalerg">
+							<?php
+							$conexion3=crearConexionBD();
+							$query3= "SELECT DISTINCT NOMBREALERGENO FROM ALIMENTOS,ALERGENOS, PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=5 "
+							."AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND ALIMENTOS.ALERGENO = ALERGENOS.IDALERGENO";
+							$alergenos=consulta_alimentos($conexion3,$query3);
+							foreach($alergenos as $alergen)
+								 {
+								  foreach(array_unique($alergen) as $alerg) {
+									echo $alerg . ", ";
+								  }
+								  
+								}
+							;?>
+							
+							</span>
 							
 						</div>
-
+				</div>
 				
+				<div id="botones_fila">
 
-					
+				<?php if (isset($libro) and ($libro["OID_LIBRO"] == $fila["OID_LIBRO"])) { ?>
+
+						<button id="grabar" name="grabar" type="submit" class="editar_fila">
+
+							<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
+
+						</button>
+
+				<?php } else { ?>
+
+						<button id="editar" name="editar" type="submit" class="editar_fila">
+
+							<img src="../images/pencil_menuito.bmp" class="editar_fila" alt="Editar plato">
+
+						</button>
+
+				<?php } ?>
+
+					<button id="borrar" name="borrar" type="submit" class="editar_fila">
+
+						<img src="../images/remove_menuito.bmp" class="editar_fila" alt="Borrar plato">
+
+					</button>
 
 				</div>
 
