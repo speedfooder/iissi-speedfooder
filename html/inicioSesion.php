@@ -9,10 +9,10 @@
 		$contrasena = $_POST['contrasena'];
 
 		$conexion = crearConexionBD();
-		$num_usuarios = consultarUsuario($conexion,$usuario,$contrasena);
+		$num_usuarios = consultarUsuario2($conexion,$usuario,$contrasena);
 		cerrarConexionBD($conexion);	
 	
-		if ($num_usuarios==true){
+		if ($num_usuarios > 0){
 			$_SESSION['login'] = $usuario;
 			Header("Location: menu.html");
 			

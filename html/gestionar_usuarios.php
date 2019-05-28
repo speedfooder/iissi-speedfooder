@@ -44,7 +44,7 @@ function consultarUsuario($conexion,$usuario,$contrasena) {
 	echo $count;
 	if($count>0)
 	{
-	$_SESSION['uid']=$data->uid; // Storing user session value
+	$_SESSION['dni']=$data->dni; // Storing user session value
 	return true;
 	}
 	else
@@ -55,5 +55,22 @@ function consultarUsuario($conexion,$usuario,$contrasena) {
 	catch(PDOException $e) {
 	echo '{"error":{"text":'. $e->getMessage() .'}}';
 	}
+}
+
+function consultarUsuario2($conexion,$usuario,$contrasena) {
+	$consulta = "SELECT DNI FROM CONSUMIDORES WHERE USUARIO=:w_usuario AND CONTRASENA=contrasena";
+	
+	try {
+		$stmt=$conexion->prepare($consulta);
+		$stmt->bindParam(':w_usuario',$usuario, PDO::PARAM_STR);
+		$stmt->bindParam(':w_contrasena',$contrasena, PDO::PARAM_STR);
+		$stmt->execute();
+		return $stmt -> rowCount();
+	} catch(PDOException $e) {
+		$e -> getMessage();
+		print_r($e -> getMessage());
+		return 0;
+		
+    }
 }
 
