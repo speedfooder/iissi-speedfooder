@@ -7,7 +7,9 @@ CREATE OR REPLACE PROCEDURE crea_cliente
     COMMIT WORK;
     END crea_cliente;
 
-/    
+/ 
+
+
 /* Procedimiento para actualizar la información de un cliente */
 CREATE OR REPLACE PROCEDURE actualiza_cliente
     (w_dni IN consumidores.dni%TYPE, w_nuevo_dni IN consumidores.dni%TYPE, w_nombre IN consumidores.nombre%TYPE, w_apellidos IN consumidores.apellidos%TYPE,
@@ -39,6 +41,16 @@ CREATE OR REPLACE FUNCTION muestra_pedidos_realizados(w_dni CONSUMIDORES.DNI%typ
       return pedidosrealizados;
   END muestra_pedidos_realizados;  
 /  
+
+/*Funcion que devuelve el numero de pedidos que un cliente ha realizado */
+CREATE OR REPLACE FUNCTION existe_cliente (w_usuario IN consumidores.usuario%TYPE, w_contrasena IN consumidores.contrasena%TYPE) 
+  return number IS existe integer;
+  BEGIN
+   SELECT COUNT(*) into existe FROM CONSUMIDORES WHERE usuario=w_usuario AND contrasena=w_contrasena;
+      return existe;
+  END existe_cliente;  
+/  
+
 /* Funcion que devuelve el numero de pedidos restantes hasta el descuento */
 CREATE OR REPLACE FUNCTION muestra_pedidos_restantes(w_dni CONSUMIDORES.DNI%type) 
   return number IS pedidosrestantes integer;
