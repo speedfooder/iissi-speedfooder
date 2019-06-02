@@ -18,11 +18,11 @@ CREATE TABLE ALERGENOS
 
 CREATE TABLE CONSUMIDORES
     (dni NUMBER(8,0) PRIMARY KEY not null,
-    nombre char(10) not null,
-    apellidos char(20),
-    email char(25),
-    usuario char (15) UNIQUE,
-    contrasena char(20)
+    nombre varchar(75) not null,
+    apellidos varchar(75),
+    email varchar(75),
+    usuario varchar (75) UNIQUE,
+    contrasena varchar(75)
     );
     
 CREATE TABLE PEDIDOS
