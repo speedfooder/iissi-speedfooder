@@ -28,27 +28,7 @@
     }
 }
 
-  
-function consultarUsuario($conexion,$usuario,$contrasena) {
-	try{
-	echo $usuario ."\n";
-	echo $contrasena."\n";
-	$consulta ='SELECT CASE WHEN MAX(DNI) IS NULL THEN 0 ELSE 1 END User_exists FROM CONSUMIDORES WHERE USUARIO=:usuario AND CONTRASENA=:contrasena';
-	$stmt = $conexion->prepare($consulta);
-	$stmt->bindParam(':usuario',$usuario);
-	$stmt->bindParam(':contrasena',$contrasena);
-	$stmt->execute();
-	$count=$stmt->fetchColumn();
-	echo $count."\n";
-	$data=$stmt->fetch(PDO::FETCH_OBJ);
-	return $count;
-	}
-	catch(PDOException $e) {
-	echo '{"error":{"text":'. $e->getMessage() .'}}';
-	}
-}
-
-function consultarUsuario2($conexion,$email,$pass) {
+function consultarUsuario($conexion,$email,$pass) {
  	$consulta = "SELECT COUNT(*) AS TOTAL FROM CONSUMIDORES WHERE USUARIO=:email AND contrasena=:pass";
 	$stmt = $conexion->prepare($consulta);
 	$stmt->bindParam(':email',$email);
