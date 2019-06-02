@@ -51,6 +51,7 @@ $_SESSION["paginacion"] = $paginacion;
 $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 	cerrarConexionBD($conexion);
+
 ?>
 
 
@@ -65,7 +66,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 </head>
 
 <body>
-
+<?php echo $plato;?> 	
 	<div class="d-inicio">
     <a href="index.html"><button class="btn-main-icon"><img src="../images/speedfooder-icon.png"></button>
     <p class="p-inicio">¡Vuelve al inicio!</p></a>
@@ -129,6 +130,16 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 	<article >
 
 		<form method="post" class="plato" action="controlador_platos.php">
+		
+
+			<input id="IDPLATO" name="IDPLATO"
+
+				type="hidden" value="<?php echo $fila["IDPLATO"]; ?>"/>
+
+			<div>
+			<input id="NOMBRE" name="NOMBRE"
+
+				type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 
 			<div>
 				
@@ -194,15 +205,35 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				</div>
 				</th>
 				<th>
+
+				<?php
+
+					if (isset($plato) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
+
+						<!-- Editando título -->
+
+						<h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/>	</h3>
+
+						
+
+				<?php }	else { ?>
+
+						<!-- mostrando título -->
+
+						<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+
+
+				<?php } ?>
+
 				<div id="botones_fila">
 				<?php if ($_SESSION['login']=='admin') {
 					
 				?>		
-					<?php if (isset($libro) and ($libro["OID_LIBRO"] == $fila["OID_LIBRO"])) { ?>
+					<?php if (isset($plato) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
 
 							<button id="grabar" name="grabar" type="submit" class="editar_fila">
 
-								<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
+								<img src="../images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
 
 							</button>
 

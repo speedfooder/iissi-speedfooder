@@ -9,7 +9,7 @@
 		require_once("gestionarPlatos.php");
 		
 		$conexion = crearConexionBD();		
-		$excepcion = elimina_plato($conexion,$plato["IDPLATO"]);
+		$excepcion = elimina_plato($conexion,$plato["NOMBRE"]);
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {
@@ -17,7 +17,7 @@
 			$_SESSION["destino"] = "menu.php";
 			Header("Location: excepcion.php");
 		}
-		else Header("Location: menu.php.php");
+		else Header("Location: menu.php");
 	}
-	else Header("Location: menu.php.php"); // Se ha tratado de acceder directamente a este PHP
+	else Header("Location: menu.php"); // Se ha tratado de acceder directamente a este PHP
 ?>
