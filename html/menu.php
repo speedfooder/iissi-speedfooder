@@ -195,31 +195,33 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				</th>
 				<th>
 				<div id="botones_fila">
+				<?php if ($_SESSION['login']=='admin') {
+					
+				?>		
+					<?php if (isset($libro) and ($libro["OID_LIBRO"] == $fila["OID_LIBRO"])) { ?>
 
-				<?php if (isset($libro) and ($libro["OID_LIBRO"] == $fila["OID_LIBRO"])) { ?>
+							<button id="grabar" name="grabar" type="submit" class="editar_fila">
 
-						<button id="grabar" name="grabar" type="submit" class="editar_fila">
+								<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
 
-							<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
+							</button>
 
-						</button>
+					<?php } else { ?>
 
-				<?php } else { ?>
+							<button id="editar" name="editar" type="submit" class="editar_fila">
 
-						<button id="editar" name="editar" type="submit" class="editar_fila">
+								<img src="../images/pencil_menuito.bmp" class="editar_fila" alt="Editar plato">
 
-							<img src="../images/pencil_menuito.bmp" class="editar_fila" alt="Editar plato">
+							</button>
 
-						</button>
+					<?php } ?>
 
-				<?php } ?>
+						<button id="borrar" name="borrar" type="submit" class="editar_fila">
 
-					<button id="borrar" name="borrar" type="submit" class="editar_fila">
-
-						<img src="../images/remove_menuito.bmp" class="editar_fila" alt="Borrar plato">
+							<img src="../images/remove_menuito.bmp" class="editar_fila" alt="Borrar plato">
 
 					</button>
-
+					<?php }?>
 				</div>
 				</th>
 				</tr>
