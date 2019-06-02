@@ -14,7 +14,7 @@
 		
 		if ($num_usuarios > 0){
 			$_SESSION['login'] = $usuario;
-			Header("Location: menu.html");
+			Header("Location: menu.php");
 			
 		}
 				
