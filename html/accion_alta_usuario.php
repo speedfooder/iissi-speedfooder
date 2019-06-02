@@ -21,6 +21,8 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../css/accion_alta_usuario.css">
+  <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Overpass" rel="stylesheet">
   <title>¡Bienvenido!</title>
 </head>
 
@@ -28,12 +30,12 @@
 
 
 	<main>
-		<?php if (alta_usuario($conexion, $nuevoUsuario)) { 
-				$_SESSION['login'] = $nuevoUsuario['email'];
+		<?php if (alta_usuario($conexion, $_POST)) { 
+				$_SESSION['login'] = $_POST['email'];
 		?>
-				<h1>Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
-				<div >	
-			   		Pulsa <a href="index.html">aquí</a> para acceder a tu restaurante favorito.
+				<h1 class="bienvenida">Hola <?php echo $_POST["nombre"]; ?>, gracias por registrarte</h1>
+				<div class="bienvenida">	
+			   		Pulsa <a class="bienvenida" href="index.html">aquí</a> para acceder a tu restaurante favorito.
 				</div>
 		<?php } else { ?>
 				<h1>El usuario ya existe en la base de datos.</h1>
