@@ -66,7 +66,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 </head>
 
 <body>
-<?php echo $plato;?> 	
+
 	<div class="d-inicio">
     <a href="index.html"><button class="btn-main-icon"><img src="../images/speedfooder-icon.png"></button>
     <p class="p-inicio">¡Vuelve al inicio!</p></a>
@@ -247,11 +247,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 					<?php } ?>
 
-						<button id="borrar" name="borrar" type="submit" class="editar_fila">
-
-							<img src="../images/remove_menuito.bmp" class="editar_fila" alt="Borrar plato">
-
-					</button>
+						
 					<?php }?>
 				</div>
 				</th>

@@ -10,10 +10,21 @@
 		
 		$conexion = crearConexionBD();		
 		$excepcion = elimina_plato($conexion,$plato["NOMBRE"]);
+		$query = "SELECT IDPLATO FROM PLATOS WHERE NOMBRE=:nombre";
+		$stmt = $conexion->prepare($query);
+		$stmt->bindParam(':nombre',$plato['NOMBRE']);
+		$stmt->execute();
+		$id=$stmt->fetchColumn();
+		$excepcion2= eliminaDepPlato($conexion,$id);
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {
 			$_SESSION["excepcion"] = $excepcion;
+			$_SESSION["destino"] = "menu.php";
+			Header("Location: excepcion.php");
+		}
+		else if ($excepcion2<>"") {
+			$_SESSION["excepcion"] = $excepcion2;
 			$_SESSION["destino"] = "menu.php";
 			Header("Location: excepcion.php");
 		}
