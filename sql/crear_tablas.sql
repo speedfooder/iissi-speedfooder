@@ -10,7 +10,7 @@ DROP TABLE LINEASPEDIDOS cascade constraints;
 
 CREATE TABLE PROVEEDORES
     (ein integer PRIMARY KEY,
-    nombre char(20));
+    nombre varchar(40));
     
 CREATE TABLE ALERGENOS
     (idAlergeno integer PRIMARY KEY,
@@ -35,7 +35,7 @@ CREATE TABLE PEDIDOS
     
 CREATE TABLE PLATOS
     (idPlato integer PRIMARY KEY,
-    nombre char(40) UNIQUE,
+    nombre varchar(40) UNIQUE,
     precio NUMBER(4,2) CHECK (precio > 0));  
     
 
@@ -48,7 +48,7 @@ CREATE TABLE MENUS
     
 CREATE TABLE ALIMENTOS
     (idAlimento integer PRIMARY KEY,
-    nombreAlimento char(40) UNIQUE,
+    nombreAlimento varchar(40) UNIQUE,
     procedencia integer,
     alergeno integer,
     fechaEntrada date,
@@ -71,7 +71,7 @@ CREATE TABLE PLATOSALIMENTOS
 CREATE TABLE LINEASPEDIDOS
     (idLineaPedido integer PRIMARY KEY,
     idpedido integer, 
-    plato char(40),
+    plato varchar(40),
     cantidadPlato integer,
     precioUnidad NUMBER(4,2),
     fecha date,
