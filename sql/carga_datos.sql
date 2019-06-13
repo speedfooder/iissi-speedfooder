@@ -1,6 +1,5 @@
 /* CONSUMIDORES */
 execute elimina_cliente(11111111);
-execute elimina_cliente(11111112);
 execute elimina_cliente(11111113);
 execute elimina_cliente(11111114);
 execute elimina_cliente(11111115);
@@ -8,9 +7,9 @@ execute elimina_cliente(11111116);
 execute elimina_cliente(11111117);
 execute elimina_cliente(11111118);
 execute elimina_cliente(11111119);
+execute elimina_cliente(37019020);
 
 execute crea_cliente(11111111, 'Juana', 'Lopez', 'juanalopez@gmail.com', 'jualop', 'juana1234');
-execute crea_cliente(11111112, 'Juan', 'Lopez', 'juanalopez@gmail.com', 'jualop', 'juana1234');
 execute crea_cliente(11111113, 'Daniel', 'Lopez', 'juanalopez@gmail.com', 'danlop', 'juana1234');
 execute crea_cliente(11111114, 'Unai', 'Lopez', 'juanalopez@gmail.com', 'unalop', 'juana1234');
 execute crea_cliente(11111115, 'Aitor', 'Lopez', 'juanalopez@gmail.com', 'aitlop', 'juana1234');
@@ -18,6 +17,7 @@ execute crea_cliente(11111116, 'Jose Maria', 'Lopez', 'josemarialopez@gmail.com'
 execute crea_cliente(11111117, 'Janire', 'Lopez', 'juanalopez@gmail.com', 'janlop', 'juana1234');
 execute crea_cliente(11111118, 'Victor', 'Lopez', 'juanalopez@gmail.com', 'viclop', 'juana1234');
 execute crea_cliente(11111119, 'Beatriz', 'Lopez', 'juanalopez@gmail.com', 'bealop', 'juana1234');
+execute crea_cliente(37019020,'Samuel','Smith','samusmithcorp@gmail.com','AdminMaster','admin1234X');
 
 /* ALERGENOS */
 execute eliminaAlergenos('gluten');

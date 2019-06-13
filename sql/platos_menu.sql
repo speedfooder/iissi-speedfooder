@@ -26,7 +26,7 @@ CREATE OR REPLACE PROCEDURE actualiza_nombre_plato
         UPDATE PLATOS
         SET nombre=w_nombre_plato
         WHERE w_id = platos.idplato;
-    END actualiza_plato; 
+    END actualiza_nombre_plato; 
 /
 /* Procedimiento para eliminar un plato */
 CREATE OR REPLACE PROCEDURE elimina_plato
