@@ -13,7 +13,7 @@ CREATE OR REPLACE PROCEDURE elimina_alimento_de_plato
     BEGIN
         DELETE FROM platosalimentos WHERE w_idplatoalimento = platosalimentos.idplatoalimento;
     END elimina_alimento_de_plato;
-
+/
 CREATE OR REPLACE PROCEDURE eliminaDepPlato (w_idplato IN platosalimentos.idplato%type) IS
     BEGIN
         DELETE FROM platosalimentos where platosalimentos.idplato=w_idplato;

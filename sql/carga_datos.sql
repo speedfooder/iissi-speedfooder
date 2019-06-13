@@ -1,6 +1,5 @@
 /* CONSUMIDORES */
 execute elimina_cliente(11111111);
-execute elimina_cliente(11111112);
 execute elimina_cliente(11111113);
 execute elimina_cliente(11111114);
 execute elimina_cliente(11111115);
@@ -8,9 +7,9 @@ execute elimina_cliente(11111116);
 execute elimina_cliente(11111117);
 execute elimina_cliente(11111118);
 execute elimina_cliente(11111119);
+execute elimina_cliente(37019020);
 
 execute crea_cliente(11111111, 'Juana', 'Lopez', 'juanalopez@gmail.com', 'jualop', 'juana1234');
-execute crea_cliente(11111112, 'Juan', 'Lopez', 'juanalopez@gmail.com', 'jualop', 'juana1234');
 execute crea_cliente(11111113, 'Daniel', 'Lopez', 'juanalopez@gmail.com', 'danlop', 'juana1234');
 execute crea_cliente(11111114, 'Unai', 'Lopez', 'juanalopez@gmail.com', 'unalop', 'juana1234');
 execute crea_cliente(11111115, 'Aitor', 'Lopez', 'juanalopez@gmail.com', 'aitlop', 'juana1234');
@@ -18,6 +17,7 @@ execute crea_cliente(11111116, 'Jose Maria', 'Lopez', 'josemarialopez@gmail.com'
 execute crea_cliente(11111117, 'Janire', 'Lopez', 'juanalopez@gmail.com', 'janlop', 'juana1234');
 execute crea_cliente(11111118, 'Victor', 'Lopez', 'juanalopez@gmail.com', 'viclop', 'juana1234');
 execute crea_cliente(11111119, 'Beatriz', 'Lopez', 'juanalopez@gmail.com', 'bealop', 'juana1234');
+execute crea_cliente(37019020,'Samuel','Smith','samusmithcorp@gmail.com','AdminMaster','admin1234X');
 
 /* ALERGENOS */
 execute eliminaAlergenos('gluten');
@@ -121,17 +121,19 @@ execute añade_alimento_en_plato(3, 1);
 execute añade_alimento_en_plato(3, 6);
 execute añade_alimento_en_plato(3, 8);
 execute añade_alimento_en_plato(3, 7);
-execute añade_alimento_en_plato(3, 14);
+execute añade_alimento_en_plato(3, 10);
 execute añade_alimento_en_plato(4, 1);
 execute añade_alimento_en_plato(4, 4);
-execute añade_alimento_en_plato(4, 14);
+execute añade_alimento_en_plato(4, 10);
 execute añade_alimento_en_plato(5, 1);
 execute añade_alimento_en_plato(5, 5);
-execute añade_alimento_en_plato(5, 14);
+execute añade_alimento_en_plato(5, 10);
 execute añade_alimento_en_plato(6, 1);
 execute añade_alimento_en_plato(6, 11);
+execute añade_alimento_en_plato(6, 9);
 execute añade_alimento_en_plato(7, 1);
 execute añade_alimento_en_plato(7, 12);
+execute añade_alimento_en_plato(7, 9);
 execute añade_alimento_en_plato(8, 1);
 execute añade_alimento_en_plato(8, 4);
 execute añade_alimento_en_plato(9, 7);
@@ -139,8 +141,8 @@ execute añade_alimento_en_plato(9, 8);
 execute añade_alimento_en_plato(9, 9);
 execute añade_alimento_en_plato(9, 2);
 execute añade_alimento_en_plato(10, 2);
-execute añade_alimento_en_plato(9, 4);
-execute añade_alimento_en_plato(9, 14);
+execute añade_alimento_en_plato(10, 4);
+execute añade_alimento_en_plato(10, 10);
 
 /* PEDIDO */
 execute elimina_pedido(2);

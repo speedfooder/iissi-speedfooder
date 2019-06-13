@@ -17,7 +17,17 @@ CREATE OR REPLACE PROCEDURE actualiza_plato
             precio = w_precio_plato
             WHERE w_id = platos.idplato;
     END actualiza_plato;
- /   
+ /
+ 
+/*Procedimiento para actualizar el nombre de un plato exclusivamente recibiendo una cadena y la id del plato (by ignacio)*/
+CREATE OR REPLACE PROCEDURE actualiza_nombre_plato
+    (w_id IN platos.idplato%TYPE, w_nombre_plato IN platos.nombre%TYPE) IS
+    BEGIN
+        UPDATE PLATOS
+        SET nombre=w_nombre_plato
+        WHERE w_id = platos.idplato;
+    END actualiza_nombre_plato; 
+/
 /* Procedimiento para eliminar un plato */
 CREATE OR REPLACE PROCEDURE elimina_plato
     (w_nombre_plato IN platos.nombre%TYPE) IS
