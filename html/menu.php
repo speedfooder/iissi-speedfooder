@@ -62,6 +62,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 	<meta charset="utf-8">
 	<title>Menu</title>
 	<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Overpass" rel="stylesheet">
+	<script src="../js/menu_popup.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="../css/menu.css">
 </head>
 
@@ -264,22 +265,6 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 
 	<?php } ?>
-
-<script>
-// When the user clicks on div, open the popup
-function myFunction(n) {
-  var nombre="Popupalimentos"+n;
-  var popup = document.getElementById(nombre);
-  popup.classList.toggle("show");
-}
-
-function FunctionAlerg(k) {
-	var nombre2="Popupalerg"+k;
-  var popup = document.getElementById(nombre2);
-  popup.classList.toggle("show");
-}
-</script>
-
 </body>
 </html>
 
