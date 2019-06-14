@@ -68,7 +68,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 <body>
 
 	<div class="d-inicio">
-    <a href="index.html"><button class="btn-main-icon"><img src="../images/speedfooder-icon.png"></button>
+    <a href="index.php"><button class="btn-main-icon"><img src="../images/speedfooder-icon.png"></button>
     <p class="p-inicio">¡Vuelve al inicio!</p></a>
 	</div>
 	<div>
