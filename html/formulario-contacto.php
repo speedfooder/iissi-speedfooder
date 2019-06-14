@@ -35,7 +35,7 @@
 <body>
 
   <div class="d-inicio">
-    <button class="btn-main-icon" ><a href="index.html"><img src="../images/speedfooder-icon.png"></a></button>
+    <button class="btn-main-icon" ><a href="index.php"><img src="../images/speedfooder-icon.png"></a></button>
     
   </div>
 <section id="formulario">

@@ -35,7 +35,7 @@
 		?>
 				<h1 class="bienvenida">Hola <?php echo $_POST["nombre"]; ?>, gracias por registrarte</h1>
 				<div class="bienvenida">	
-			   		Pulsa <a class="bienvenida" href="index.html">aquí</a> para acceder a tu restaurante favorito.
+			   		Pulsa <a class="bienvenida" href="index.php">aquí</a> para acceder a tu restaurante favorito.
 				</div>
 		<?php } else { ?>
 				<h1>El usuario ya existe en la base de datos.</h1>
