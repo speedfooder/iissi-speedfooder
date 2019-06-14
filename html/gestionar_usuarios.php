@@ -22,9 +22,10 @@
 		
 		return true;
 	} catch(PDOException $e) {
+		$_SESSION['excepcion'] = $e->GetMessage();
+		header("Location: excepcion.php");
 		return false;
-		$e -> getMessage();
-		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
+		
     }
 }
 
@@ -43,7 +44,6 @@ function consulta_dni_usuario($conexion,$usuario) {
 	$stmt->bindParam(':usuario',$usuario["usuario"]);
 	$stmt->bindParam(':pass',$usuario["contrasena"]);
 	$stmt->execute();
-	print_r($stmt->fetchColumn());
 	return $stmt->fetchColumn();
 }
 
@@ -51,16 +51,20 @@ function consulta_dni_usuario($conexion,$usuario) {
 
 function baja_usuario($conexion,$usuario) {
 	$dni = consulta_dni_usuario($conexion,$usuario);
- 	$consulta = "CALL ELIMINA_CLIENTE(:w_dni)";
-	try {
-		$stmt = $conexion->prepare($consulta);
-		$stmt->bindParam(':w_dni',$dni);
-		$stmt->execute();
-		
-		return true;
-	} catch(PDOException $e) {
+	if($dni == 0) {
 		return false;
-		$e -> getMessage();
+	} else {
+		$consulta = "CALL ELIMINA_CLIENTE(:w_dni)";
+		try {
+			$stmt = $conexion->prepare($consulta);
+			$stmt->bindParam(':w_dni',$dni);
+			$stmt->execute();
+			return true;
+		} catch(PDOException $e) {
+			$_SESSION['excepcion'] = $e->GetMessage();
+			header("Location: excepcion.php");
+			return false;
+		}	
 	}
 }
 

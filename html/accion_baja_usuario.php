@@ -26,14 +26,14 @@
   <title>¿Ya te vas?</title>
 </head>
 
-<body>
+<body class="bienvenida">
 
 
 	<main>
 		<?php if (baja_usuario($conexion, $_POST)) { 
 				$_SESSION['login'] = $_POST['usuario'];
 		?>
-				<h1 class="bienvenida">¡Hasta la próxima <?php echo $_POST['usuario']; ?>!</h1>
+				<h1>¡Hasta la próxima <?php echo $_POST['usuario']; ?>!</h1>
 		<?php } else { ?>
 				<h1>¡Vaya! Algo ha salido mal.</h1>
 				<div >	
