@@ -41,11 +41,11 @@
 ///////////////////////////////////////////////////////////
 function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();
-	// Validación del NIF
-	if($nuevoUsuario["nif"]=="") 
-		$errores[] = "<p>El NIF no puede estar vacío</p>";
-	else if(!preg_match("/^[0-9]{8}[A-Z]$/", $nuevoUsuario["nif"])){
-		$errores[] = "<p>El NIF debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["nif"]. "</p>";
+	// Validación del DNI
+	if($nuevoUsuario["dni"]=="") 
+		$errores[] = "<p>El DNI no puede estar vacío</p>";
+	else if(!preg_match("/^[0-9]{8}$/", $nuevoUsuario["dni"])){
+		$errores[] = "<p>El DNI debe contener 8 números y una letra mayúscula: " . $nuevoUsuario["dni"]. "</p>";
 	}
 
 	// Validación del Nombre			
@@ -61,14 +61,13 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	
 		
 	// Validación de la contraseña
-	// if(!isset($nuevoUsuario["pass"]) || strlen($nuevoUsuario["pass"])<8){
-		// $errores [] = "<p>Contraseña no válida: debe tener al menos 8 caracteres</p>";
-	// }else if(!preg_match("/[a-z]+/", $nuevoUsuario["pass"]) || 
-		// !preg_match("/[A-Z]+/", $nuevoUsuario["pass"]) || !preg_match("/[0-9]+/", $nuevoUsuario["pass"])){
-		// $errores[] = "<p>Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos</p>";
-	// }else if($nuevoUsuario["pass"] != $nuevoUsuario["confirmpass"]){
-		// $errores[] = "<p>La confirmación de contraseña no coincide con la contraseña</p>";
-	// }
+	if(!isset($nuevoUsuario["contrasena"]) || strlen($nuevoUsuario["contrasena"])<8){
+		$errores [] = "<p>Contraseña no válida: debe tener al menos 8 caracteres</p>";
+	}else if(!preg_match("/[a-z]+/", $nuevoUsuario["contrasena"]) || 
+		!preg_match("/[A-Z]+/", $nuevoUsuario["contrasena"]) || !preg_match("/[0-9]+/", $nuevoUsuario["contrasena"])){
+		$errores[] = "<p>Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos</p>";
+	}
+}
 
 ?>
 
