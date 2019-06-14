@@ -8,8 +8,14 @@
 </head>
 <body>
 <div class="d-inicio-sesion">
-  <a href="inicioSesion.php">¡Inicia sesión!</a>
-  <p>¿Aún no tienes cuenta? <a href="formularioSesion.php">¡Regístrate!</a></p>
+<?php 
+session_start();
+if (!$_SESSION['login']) {?>
+	<a href="inicioSesion.php">¡Inicia sesión!</a>
+	<p>¿Aún no tienes cuenta? <a href="formularioSesion.php">¡Regístrate!</a></p>
+<?php } else { ?>
+ <p>Hola <a href=#><?php echo $_SESSION['login'];?></a></p>
+<?php }?>
 </div>
 
 <div>
