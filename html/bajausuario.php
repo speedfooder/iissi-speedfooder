@@ -1,3 +1,32 @@
+<?php
+	session_start();
+	
+	// Importar librerías necesarias para gestionar direcciones y géneros literarios
+	require_once("gestionBD.php");
+
+	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
+	if (!isset($_SESSION["formulario"])) {
+		$formulario['usuario'] = "";
+		$formulario['contrasena'] = "";
+		$_SESSION["formulario"] = $formulario;
+	}
+	// Si ya existían valores, los cogemos para inicializar el formulario
+	else
+		$formulario = $_SESSION["formulario"];
+		
+		#unset($formulario);
+			
+	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
+	if (isset($_SESSION["errores"])){
+		$errores = $_SESSION["errores"];
+		unset($_SESSION["errores"]);
+	}
+		
+	// Creamos una conexión con la BD
+	$conexion = crearConexionBD();
+?>
+
+
 <html>
 <head>
     <title>Baja de usuario</title>
@@ -13,7 +42,7 @@
 <p id="titulo">Este es el adios...</p>
 
 <p id="descript">Lamentamos que te tengas que ir, pero si así lo deseas, rellena los campos necesarios</p>
-  <form action="actionbaja.php" method="post">
+  <form action="accion_baja_usuario.php" method="post">
       
 
       <input type="text" id="Usuario" name="usuario" size="40" placeholder="Escribe aquí tu usuario">

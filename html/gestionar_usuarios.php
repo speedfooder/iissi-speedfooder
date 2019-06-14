@@ -37,4 +37,31 @@ function consultarUsuario($conexion,$email,$pass) {
 	return $stmt->fetchColumn();
 }
 
+function consulta_dni_usuario($conexion,$usuario) {
+ 	$consulta = "SELECT DNI FROM CONSUMIDORES WHERE USUARIO=:usuario AND contrasena=:pass";
+	$stmt = $conexion->prepare($consulta);
+	$stmt->bindParam(':usuario',$usuario["usuario"]);
+	$stmt->bindParam(':pass',$usuario["contrasena"]);
+	$stmt->execute();
+	print_r($stmt->fetchColumn());
+	return $stmt->fetchColumn();
+}
+
+
+
+function baja_usuario($conexion,$usuario) {
+	$dni = consulta_dni_usuario($conexion,$usuario);
+ 	$consulta = "CALL ELIMINA_CLIENTE(:w_dni)";
+	try {
+		$stmt = $conexion->prepare($consulta);
+		$stmt->bindParam(':w_dni',$dni);
+		$stmt->execute();
+		
+		return true;
+	} catch(PDOException $e) {
+		return false;
+		$e -> getMessage();
+	}
+}
+
 
