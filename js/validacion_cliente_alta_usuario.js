@@ -7,9 +7,7 @@
 			// Comprobar que la longitud de la contraseña es >=8, que contiene letras mayúsculas y minúsculas y números
 			var error1 = passwordValidation();
 	        
-			var error2 = passwordConfirmation();
-	        
-			return (error1.length==0) && (error2.length==0);
+			return error1.length==0;
 		}
 		else 
 			return true;
@@ -32,75 +30,54 @@
 		
 		// Si no cumple las restricciones, devolvemos un error
 		if(!valid){
-			var error = "Please enter a valid password! Length >= 8, (upper and lower case) letters and digits";
+			var error = "Por favor introduzca una contraseña válida (Al menos 8 caracteres, letras mayúsculas, minúsculas y números).";
 		}else{
 			var error = "";
 		}
 	        password.setCustomValidity(error);
 		return error;
 	}
-	
-	// EJERCICIO 3.2: Campos de contraseña y confirmación de contraseña iguales
-	// function passwordConfirmation(){
-		// // Obtenemos el campo de password y su valor
-        // var password = document.getElementById("password");
-		// var pwd = password.value;
-		// Obtenemos el campo de confirmación de password y su valor
-		// var passconfirm = document.getElementById("confirmpass");
-		// var confirmation = passconfirm.value;
 
-		// Los comparamos
-		// if (pwd != confirmation) {
-			// var error = "Please enter matching passwords!";
-		// }else{
-			// var error = "";
-		// }
-// 
-		// passconfirm.setCustomValidity(error);
-// 
-		// return error;
-	// }
+	//Calcula la fortaleza de una contraseña: frecuencia de repetición de caracteres
+	function passwordStrength(password){
+    		// Creamos un Map donde almacenar las ocurrencias de cada carácter
+    		var letters = {};
 
-	// EJERCICIO 2: Calcula la fortaleza de una contraseña: frecuencia de repetición de caracteres
-	// function passwordStrength(password){
-    		// // Creamos un Map donde almacenar las ocurrencias de cada carácter
-    		// var letters = {};
-// 
-    		// // Recorremos la contraseña carácter por carácter
-    		// var length = password.length;
-    		// for(x = 0, length; x < length; x++) {
-        		// // Consultamos el carácter en la posición x
-        		// var l = password.charAt(x);
-// 
-        		// // Si NO existe en el Map, inicializamos su contador a uno
-        		// // Si ya existía, incrementamos el contador en uno
-        		// letters[l] = (isNaN(letters[l])? 1 : letters[l] + 1);
-    		// }
-// 
-    		// // Devolvemos el cociente entre el número de caracteres únicos (las claves del Map)
-		// // y la longitud de la contraseña
-    		// return Object.keys(letters).length / length;
-	// }
+    		// Recorremos la contraseña carácter por carácter
+    		var length = password.length;
+    		for(x = 0, length; x < length; x++) {
+        		// Consultamos el carácter en la posición x
+        		var l = password.charAt(x);
+
+        		// Si NO existe en el Map, inicializamos su contador a uno
+        		// Si ya existía, incrementamos el contador en uno
+        		letters[l] = (isNaN(letters[l])? 1 : letters[l] + 1);
+    		}
+
+    		// Devolvemos el cociente entre el número de caracteres únicos (las claves del Map)
+		// y la longitud de la contraseña
+    		return Object.keys(letters).length / length;
+	}
 	
-	// EJERCICIO 4: Coloreado del campo de contraseña según su fortaleza
-	// function passwordColor(){
-		// var passField = document.getElementById("pass");
-		// var strength = passwordStrength(passField.value);
-// 		
-		// if(!isNaN(strength)){
-			// var type = "weakpass";
-			// if(passwordValidation()!=""){
-				// type = "weakpass";
-			// }else if(strength > 0.7){
-				// type = "strongpass";
-			// }else if(strength > 0.4){
-				// type = "middlepass";
-			// }
-		// }else{
-			// type = "nanpass";
-		// }
-		// passField.className = type;
-// 		
-		// return type;
-	// }
+	//Coloreado del campo de contraseña según su fortaleza
+	function passwordColor(){
+		var passField = document.getElementById("pass");
+		var strength = passwordStrength(passField.value);
+		
+		if(!isNaN(strength)){
+			var type = "weakpass";
+			if(passwordValidation()!=""){
+				type = "weakpass";
+			}else if(strength > 0.7){
+				type = "strongpass";
+			}else if(strength > 0.4){
+				type = "middlepass";
+			}
+		}else{
+			type = "nanpass";
+		}
+		passField.className = type;
+		
+		return type;
+	}
 	

@@ -54,7 +54,7 @@
 			});
 
 			// EJERCICIO 3: Manejador de evento del color de la contraseña
-			$("#password").on("keyup", function() {
+			$("#contrasena").on("keyup", function() {
 				// Calculo el color
 				passwordColor();
 			});
