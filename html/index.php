@@ -10,11 +10,12 @@
 <div class="d-inicio-sesion">
 <?php 
 session_start();
-if (!$_SESSION['login']) {?>
+if (!isset($_SESSION['login'])) {?>
 	<a href="inicioSesion.php">¡Inicia sesión!</a>
 	<p>¿Aún no tienes cuenta? <a href="formularioSesion.php">¡Regístrate!</a></p>
 <?php } else { ?>
- <p>Hola <a href=#><?php echo $_SESSION['login'];?></a></p>
+ <p>Hola, <?php echo $_SESSION['login'];?></p>
+ <a href="accion_desconectar_usuario.php">Desconectar</a>
 <?php }?>
 </div>
 
@@ -25,7 +26,7 @@ if (!$_SESSION['login']) {?>
 			<th class="column2"><a href="menu.php"><button class="btn"> <img src="../images/pizza2.jpg"/></button></a></th>
 		</tr>
 		<tr>
-			<th class="column1"><a href="#"><button class="btn"><img src="../images/pizza3.jpg"/></button></a></th>
+			<th class="column1"><a href="bajausuario.php"><button class="btn"><img src="../images/pizza3.jpg"/></button></a></th>
 			<th class="column2"><a href="about-us.html"><button class="btn"><img src="../images/pizza4.jpg"/></button></a></th>
 		</tr>
 	</table>
