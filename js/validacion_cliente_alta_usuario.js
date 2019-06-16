@@ -7,8 +7,9 @@
 			// Comprobar que la longitud de la contraseña es >=8, que contiene letras mayúsculas y minúsculas y números
 			var error1 = passwordValidation();
 			var error2 = dniValidation();
+			var error3 = nameValidation();
 	        
-			return error1.length==0 && error2.length==0;
+			return error1.length==0 && error2.length==0 && error3.length==0;
 		}
 		else 
 			return true;
@@ -103,5 +104,20 @@
 			var error = "";
 		}
 	        dni.setCustomValidity(error);
+		return error;
+	}
+
+	function nameValidation(){
+		var name = document.getElementById("nombre");
+		var nameval = name.value;
+		var valid = nameval.length>0;
+		
+		// Si no cumple las restricciones, devolvemos un error
+		if(!valid){
+			var error = "Por favor introduzca un nombre.";
+		}else{
+			var error = "";
+		}
+	        name.setCustomValidity(error);
 		return error;
 	}
