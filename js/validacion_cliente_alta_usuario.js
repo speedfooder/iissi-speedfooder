@@ -6,8 +6,9 @@
 		if (!noValidation){
 			// Comprobar que la longitud de la contraseña es >=8, que contiene letras mayúsculas y minúsculas y números
 			var error1 = passwordValidation();
+			var error2 = dniValidation();
 	        
-			return error1.length==0;
+			return error1.length==0 && error2.length==0;
 		}
 		else 
 			return true;
@@ -81,3 +82,26 @@
 		return type;
 	}
 	
+	function dniValidation(){
+		var dni = document.getElementById("DNI");
+		var dnival = dni.value;
+		var valid = true;
+
+		// Comprobamos la longitud del dni
+		valid = valid && (dnival.length==8);
+		
+		// Comprobamos si no contiene letras mayúsculas, minúsculas pero sí números
+		var hasNumber = /\d/;
+		var hasUpperCases = /[A-Z]/;
+		var hasLowerCases = /[a-z]/;
+		valid = valid && (hasNumber.test(dnival)) && !(hasUpperCases.test(dnival)) && !(hasLowerCases.test(dnival));
+		
+		// Si no cumple las restricciones, devolvemos un error
+		if(!valid){
+			var error = "Por favor introduzca un DNI valido (los 8 numeritos solo ;) )";
+		}else{
+			var error = "";
+		}
+	        dni.setCustomValidity(error);
+		return error;
+	}

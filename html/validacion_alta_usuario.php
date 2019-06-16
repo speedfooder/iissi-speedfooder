@@ -7,13 +7,14 @@
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
 	if (isset($_SESSION["formulario"])) {
 		// Recogemos los datos del formulario
-		$nuevoUsuario["dni"] = $_REQUEST["dni"];
-		$nuevoUsuario["nombre"] = $_REQUEST["nombre"];
-		$nuevoUsuario["apellidos"] = $_REQUEST["apellidos"];
-		$nuevoUsuario["email"] = $_REQUEST["email"];
-		$nuevoUsuario["usuario"] = $_REQUEST["usuario"];
-		$nuevoUsuario["contrasena"] = $_REQUEST["contrasena"];
-		// $nuevoUsuario["confirmpass"] = $_REQUEST["confirmpass"];
+		$nuevoUsuario["dni"] = $_POST["dni"];
+		$nuevoUsuario["nombre"] = $_POST["nombre"];
+		$nuevoUsuario["apellidos"] = $_POST["apellidos"];
+		$nuevoUsuario["email"] = $_POST["email"];
+		$nuevoUsuario["usuario"] = $_POST["usuario"];
+		$nuevoUsuario["contrasena"] = $_POST["contrasena"];
+		// $nuevoUsuario["confirmpass"] = $_REQUEST["confirmpass"];
+
 		
 		
 		// Guardar la variable local con los datos del formulario en la sesión.
