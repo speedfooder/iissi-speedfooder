@@ -11,7 +11,20 @@
 			var error4 = emailValidation();
 	        
 			return error1.length==0 && error2.length==0
-			&& error3.length==0 && error4-length==0;
+			&& error3.length==0 && error4.length==0;
+		}
+		else 
+			return true;
+	}
+	
+	function validateFormContacto() {
+		var noValidation = document.getElementById("#contacto").novalidate;
+		
+		if (!noValidation){
+			var error3 = nameValidation();
+			var error4 = emailValidation();
+	        
+			return error3.length==0 && error4.length==0;
 		}
 		else 
 			return true;

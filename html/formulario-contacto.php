@@ -30,7 +30,8 @@
     <meta charset="UTF-8">
     <title>¡Contáctanos!</title>
     <link rel="stylesheet" type="text/css" href="../css/signinform.css">
-    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Overpass" rel="stylesheet">
+    <script src="../js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+	<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Overpass" rel="stylesheet">
 </head>
 <body>
 
@@ -38,11 +39,18 @@
     <button class="btn-main-icon" ><a href="index.php"><img src="../images/speedfooder-icon.png"></a></button>
     
   </div>
+  <script>
+	$(document).ready(function() {
+		$("#contacto").on("submit", function() {
+				return validateFormContacto();
+		});
+	});
+  </script>
 <section id="formulario">
 <p id="titulo">¡Contáctanos!</p>
   <form action="formulario-contacto.php" method="post">
-      <input type="text" id="nombre" name="nombre" size="40" placeholder="Escribe tu nombre" value="<?php echo $formulario['nombre'];?>" required>
-      <input type="mail" id="email" name="email" size="40" placeholder="Escribe tu email" value="<?php echo $formulario['email'];?>" required>
+      <input type="text" id="nombre" name="nombre" size="40" placeholder="Escribe tu nombre" value="<?php echo $formulario['nombre'];?>" required oninput="nameValidation(); ">
+      <input type="mail" id="email" name="email" size="40" placeholder="Escribe tu email" value="<?php echo $formulario['email'];?>" required oninput="mailValidation(); ">
       <input type="text" id="opinion" name="opinion" size="auto" placeholder="Cuéntanos tu opinión...">
   
   
@@ -51,6 +59,8 @@
   
 </form>
 </section>
-     
+     <?php
+		cerrarConexionBD($conexion);
+	?>
 </body>
 </html>
