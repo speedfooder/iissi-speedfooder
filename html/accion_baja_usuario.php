@@ -32,6 +32,7 @@
 	<main>
 		<?php if (baja_usuario($conexion, $_POST)) { 
 				$_SESSION['login'] = $_POST['usuario'];
+				unset($_SESSION['login']);
 		?>
 				<h1>¡Hasta la próxima <?php echo $_POST['usuario']; ?>!</h1>
 		<?php } else { ?>
