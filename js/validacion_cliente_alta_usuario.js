@@ -8,8 +8,10 @@
 			var error1 = passwordValidation();
 			var error2 = dniValidation();
 			var error3 = nameValidation();
+			var error4 = emailValidation();
 	        
-			return error1.length==0 && error2.length==0 && error3.length==0;
+			return error1.length==0 && error2.length==0
+			&& error3.length==0 && error4-length==0;
 		}
 		else 
 			return true;
@@ -120,4 +122,18 @@
 		}
 	        name.setCustomValidity(error);
 		return error;
+	}
+	
+	function emailValidation() {
+		var mail = document.getElementById("email");
+		var mailval = mail.value;
+		var valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(mailval);
+		// Si no cumple las restricciones, devolvemos un error
+		if(!valid){
+			var error = "Por favor introduzca un email válido.";
+		}else{
+			var error = "";
+		}
+	        mail.setCustomValidity(error);
+		return error;  
 	}
