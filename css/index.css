@@ -62,3 +62,16 @@ img:hover {
 	text-align: right;
 	font-family: 'Overpass', sans-serif;
 }
+
+
+/* Estilos para los enlaces */
+
+.a-form {
+	color: black;
+}
+
+.a-form:hover {
+	color: black;
+	background-color: #ad7101;
+	opacity: .5;
+}

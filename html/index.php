@@ -11,11 +11,11 @@
 <?php 
 session_start();
 if (!isset($_SESSION['login'])) {?>
-	<a href="inicioSesion.php">¡Inicia sesión!</a>
-	<p>¿Aún no tienes cuenta? <a href="formularioSesion.php">¡Regístrate!</a></p>
+	<a class="a-form" href="inicioSesion.php">¡Inicia sesión!</a>
+	<p>¿Aún no tienes cuenta? <a class="a-form" href="formularioSesion.php">¡Regístrate!</a></p>
 <?php } else { ?>
  <p>Hola, <?php echo $_SESSION['login'];?></p>
- <a href="accion_desconectar_usuario.php">Desconectar</a>
+ <a class="a-form" href="accion_desconectar_usuario.php">Desconectar</a>
 <?php }?>
 </div>
 
