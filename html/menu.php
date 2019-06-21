@@ -88,8 +88,12 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						<a class="current" href="menu.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 
 			<?php } ?></li>
-			<li class = "pedido"><a  href="#">¡Haz tu pedido!</a></li>
-			
+			<?php 
+				if (isset($_SESSION['login'])) {?>
+					<li class = "pedido"><a  href="#">¡Haz tu pedido!</a></li>
+			<?php } else { ?>
+					<li class = "pedido"><a  href="inicioSesion.php">¡Inicia sesión para hacer tu pedido!</a></li>
+			<?php }?>
 		</ul>
   </div>
 
