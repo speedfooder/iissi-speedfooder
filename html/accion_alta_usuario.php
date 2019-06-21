@@ -30,10 +30,10 @@
 
 
 	<main>
-		<?php if (alta_usuario($conexion, $_POST)) { 
-				$_SESSION['login'] = $_POST['email'];
+		<?php if (alta_usuario($conexion, $nuevoUsuario)) { 
+				$_SESSION['login'] = $nuevoUsuario['nombre'];
 		?>
-				<h1 class="bienvenida">Hola <?php echo $_POST["nombre"]; ?>, gracias por registrarte</h1>
+				<h1 class="bienvenida">Hola <?php echo $nuevoUsuario["nombre"]; ?>, gracias por registrarte</h1>
 				<div class="bienvenida">	
 			   		Pulsa <a class="bienvenida" href="index.php">aquí</a> para acceder a tu restaurante favorito.
 				</div>
