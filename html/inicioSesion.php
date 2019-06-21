@@ -37,8 +37,8 @@
 <body>
 	
 	<?php if (isset($login)) {
-		echo "<div class=\"error\">";
-		echo "Error en la contraseña o no existe el usuario.";
+		echo "<div class=\"p-inicio\">";
+		echo "¡Vaya! Parece que ha habido un error en la contraseña o no existe el usuario.";
 		echo "</div>";
 	}	
 	?>

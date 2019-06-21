@@ -59,12 +59,10 @@ input[type="submit"]{
 .p-inicio {
 	font-family: 'Overpass', sans-serif;
 	font-size: 100%;
-	text-transform: uppercase;
-	display:inline-block;
-	text-align: right;
-	text-transform: uppercase;
+	display:center;
+	text-align: center;
 	color: #efdfc4;
-	letter-spacing: 3px;
+	letter-spacing: 1px;
     padding-top: 3px;
 }
 
