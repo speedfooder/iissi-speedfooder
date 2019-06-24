@@ -32,7 +32,7 @@ else{
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
-		Header('Location: formularioSesion.php');
+		Header('Location: insercionusuario.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
 		Header('Location: accion_alta_usuario.php');
@@ -44,31 +44,33 @@ function validarDatosUsuario($conexion, $nuevoUsuario){
 	$errores=array();
 	// Validación del DNI
 	if(empty($nuevoUsuario["dni"])){ 
-        array_push ($errores,"El DNI no puede estar vacío");
+        array_push ($errores,"El DNI no puede estar vacío \n");
     }
 	else if(!(is_numeric($nuevoUsuario["dni"])) || strlen($nuevoUsuario["dni"])!=8){
-		array_push($errores,"el formato de DNI deben ser ocho numeros");
+		array_push($errores,"el formato de DNI deben ser ocho numeros. \n");
 	}
 
 	// Validación del Nombre			
 	if(empty($nuevoUsuario["nombre"])) {
-        array_push($errores,"el nombre no puede estar vacío");
+        array_push($errores,"el nombre no puede estar vacío. \n");
     }
 	// Validación del email
 	if(empty($nuevoUsuario["email"])){ 
-		array_push($errores,"el email/gmail no puede estar vacío");
+		array_push($errores,"el email/gmail no puede estar vacío. \n");
 	}else if(!filter_var($nuevoUsuario["email"], FILTER_VALIDATE_EMAIL)){
-        array_push($errores,"el formato de correo es incorrrecto");
+        array_push($errores,"el formato de correo es incorrrecto. \n");
     }
 	
-		
 	// Validación de la contraseña
 	if(!isset($nuevoUsuario["contrasena"]) || strlen($nuevoUsuario["contrasena"])<8){
-		$errores [] = "<p>Contraseña no válida: debe tener al menos 8 caracteres</p>";
+		array_push($errores,"La contraseña es incorrecta. Debe tener al menos 8 caracteres. \n");
+	
 	}else if(!preg_match("/[a-z]+/", $nuevoUsuario["contrasena"]) || 
 		!preg_match("/[A-Z]+/", $nuevoUsuario["contrasena"]) || !preg_match("/[0-9]+/", $nuevoUsuario["contrasena"])){
-		$errores[] = "<p>Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos</p>";
+		array_push($errores,"Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos. \n");
 	}
+
+	return $errores;
 }
 
 ?>
