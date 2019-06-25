@@ -31,7 +31,7 @@ p#titulo{
     font-family: 'Barlow Condensed', sans-serif;
 }
 
-input[type="text"], input[type="mail"], input[type="password"]{
+input[type="text"], input[type="mail"], input[type="password"], textarea{
     width: 75%;
     margin-left: 10%;
     height: 5%;
