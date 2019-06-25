@@ -231,7 +231,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				<?php } ?>
 
 				<div id="botones_fila">
-				<?php if ($_SESSION['login']=='admin') {
+				<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {
 					
 				?>		
 					<?php if (isset($plato) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
