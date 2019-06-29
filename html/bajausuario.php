@@ -32,7 +32,8 @@
     <title>Baja de usuario</title>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Overpass" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/bajausuario.css">
+    <script src="../js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="../css/bajausuario.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jQuery/1.12.4/jQuery.min.js"></script>
 </head>
 <body>
@@ -60,8 +61,8 @@
   <form action="validacion_server_borrar_user.php" method="post">
       
 
-      <input type="text" id="Usuario" name="usuario" size="40" placeholder="Escribe aquí tu usuario">
-      <input type="password" id="Contraseña" name="contrasena" size="40" placeholder="Escribe tu contraseña">
+      <input type="text" id="nombre" name="usuario" size="40" placeholder="Escribe aquí tu usuario" required oninput="nameValidation();">
+      <input type="password" id="password" name="contrasena"  size="40" placeholder="Escribe tu contraseña" pattern="([A-Za-z0-9]+){8,}" required oninput="passwordValidation();">
 
       
       
