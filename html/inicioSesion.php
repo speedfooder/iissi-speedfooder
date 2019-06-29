@@ -21,13 +21,12 @@
 		else {
 			$login = "error";
 		}
-		
-		if (isset($_SESSION["errores"])){
-			$errores = $_SESSION["errores"];
-			unset($_SESSION["errores"]);
-		}
+				
 	}
-
+	if (isset($_SESSION["errores"])){
+		$errores = $_SESSION["errores"];
+		unset($_SESSION["errores"]);
+	}
 ?>
 
 <html>
