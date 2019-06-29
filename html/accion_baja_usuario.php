@@ -30,11 +30,12 @@
 
 
 	<main>
-		<?php if (baja_usuario($conexion, $_POST)) { 
-				$_SESSION['login'] = $_POST['usuario'];
+		<?php if (baja_usuario($conexion, $nuevoUsuario)) {
 				unset($_SESSION['login']);
 		?>
-				<h1>¡Hasta la próxima <?php echo $_POST['usuario']; ?>!</h1>
+				<h1>¡Hasta la próxima <?php echo $nuevoUsuario['usuario']; ?>!</h1>
+				Pulsa <a href="index.php">aquí</a> para volver a la página principal.
+				
 		<?php } else { ?>
 				<h1>¡Vaya! Algo ha salido mal.</h1>
 				<div >	
