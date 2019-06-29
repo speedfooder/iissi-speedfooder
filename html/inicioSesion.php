@@ -20,7 +20,12 @@
 				
 		else {
 			$login = "error";
-		}	
+		}
+		
+		if (isset($_SESSION["errores"])){
+			$errores = $_SESSION["errores"];
+			unset($_SESSION["errores"]);
+		}
 	}
 
 ?>
@@ -62,5 +67,17 @@
 </form>
     <p id="AlertaReg">¿No tienes usuario? Regístrate <a href="formularioSesion.php">aquí</a></p>
 </section>
+
+<?php 
+		// Mostrar los erroes de validación (Si los hay)
+		if (isset($errores) && count($errores)>0) { 
+	    	echo "<div id=\"div_errores\" class=\"error\">";
+			echo "<h4> Errores en el formulario:</h4>";
+    		foreach($errores as $error){
+    			echo $error;
+			} 
+    		echo "</div>";
+  		}
+	?>
 </body>
 </html>
