@@ -4,9 +4,12 @@
   	include_once("gestionBD.php");
  	include_once("gestionar_usuarios.php");
 	
-	if (isset($_POST['submit'])){
-		$usuario= $_POST['usuario'];
-		$contrasena = $_POST['contrasena'];
+	if (isset($_SESSION['formulario'])){
+		$form=$_SESSION['formulario'];
+		unset($_SESSION['formulario']);
+
+		$usuario= $form['usuario'];
+		$contrasena = $form['contrasena'];
 
 		$conexion = crearConexionBD();
 		$num_usuarios = consultarUsuario($conexion,$usuario,$contrasena);
@@ -52,7 +55,7 @@
 </div>
 <section id="formulario">
 <p id="titulo">Inicia Sesión</p>
-  <form action="inicioSesion.php" method="post">
+  <form action="valServerLogin.php" method="post">
       
 
       <input type="text" id="Usuario" name="usuario" size="40" placeholder="Introduce tu usuario">
