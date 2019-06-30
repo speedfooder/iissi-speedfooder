@@ -54,6 +54,21 @@
 	        password.setCustomValidity(error);
 		return error;
 	}
+	
+	function emptyPasswordValidation(){
+		var passwd = document.getElementById("password");
+		var pass = passwd.value;
+		var valid = pass.length>0;
+		
+		// Si no cumple las restricciones, devolvemos un error
+		if(!valid){
+			var error = "Por favor introduzca la contraseña.";
+		}else{
+			var error = "";
+		}
+	        passwd.setCustomValidity(error);
+		return error;
+	}
 
 	//Calcula la fortaleza de una contraseña: frecuencia de repetición de caracteres
 	function passwordStrength(password){

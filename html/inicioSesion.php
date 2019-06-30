@@ -37,7 +37,10 @@
     <title>¡Inicia Sesión!</title>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Overpass" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/inicioSesion.css">
+	<link rel="stylesheet" type="text/css" href="../css/inicioSesion.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jQuery/1.12.4/jQuery.min.js"></script>
+    <script src="../js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+
                                 
     
 </head>
@@ -53,22 +56,6 @@
 <div class="d-inicio">
     <button class="btn-main-icon" ><a href="index.php"><img src="../images/speedfooder-icon.png"></a></button>
 </div>
-<section id="formulario">
-<p id="titulo">Inicia Sesión</p>
-  <form action="valServerLogin.php" method="post">
-      
-
-      <input type="text" id="Usuario" name="usuario" size="40" placeholder="Introduce tu usuario" required> 
-      <input type="password" id="Contraseña" name="contrasena" size="40" placeholder="Escribe tu contraseña secreta" required>
-
-      
-      
-      <input type="submit" name="submit" value="¡INICIA SESIÓN!">
-    
-  
-</form>
-    <p id="AlertaReg">¿No tienes usuario? Regístrate <a href="formularioSesion.php">aquí</a></p>
-</section>
 
 <?php 
 		// Mostrar los erroes de validación (Si los hay)
@@ -81,6 +68,25 @@
     		echo "</div>";
   		}
 	?>
+	
+<section id="formulario">
+<p id="titulo">Inicia Sesión</p>
+  <form action="valServerLogin.php" method="post">
+      
+
+      <input type="text" id="nombre" name="usuario" size="40" placeholder="Introduce tu usuario" required oninput="nameValidation();"> 
+      <input type="password" id="password" name="contrasena" size="40" placeholder="Escribe tu contraseña secreta" required oninput="emptyPasswordValidation();">
+
+      
+      
+      <input type="submit" name="submit" value="¡INICIA SESIÓN!">
+    
+  
+</form>
+    <p id="AlertaReg">¿No tienes usuario? Regístrate <a href="formularioSesion.php">aquí</a></p>
+</section>
+
+
 
 </body>
 </html>
