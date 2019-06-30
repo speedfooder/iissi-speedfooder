@@ -73,3 +73,14 @@ p#AlertaReg{
     padding-bottom: 5px;
     font-family: 'Overpass', sans-serif;
 }
+div.error{
+    text-align: center;
+   
+    margin-top: 35%;
+    padding-bottom: 5px;
+    
+    font-family: 'Overpass', sans-serif;
+    font-size: 100%;
+    color: #efdfc4;
+    
+}
