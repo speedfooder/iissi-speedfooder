@@ -58,8 +58,8 @@
   <form action="valServerLogin.php" method="post">
       
 
-      <input type="text" id="Usuario" name="usuario" size="40" placeholder="Introduce tu usuario">
-      <input type="password" id="Contraseña" name="contrasena" size="40" placeholder="Escribe tu contraseña secreta">
+      <input type="text" id="Usuario" name="usuario" size="40" placeholder="Introduce tu usuario" required>
+      <input type="password" id="Contraseña" name="contrasena" size="40" placeholder="Escribe tu contraseña secreta" required>
 
       
       
