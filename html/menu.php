@@ -174,13 +174,17 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 							$cadena="";
 							
 							$longitud = count($alimentos);
+							$listaAl="";
 							foreach($alimentos as $aliment)
 								 {
 								  foreach(array_unique($aliment) as $a) {
-									echo $a . ", ";
+									$listaAl .= $a . ",";
 								  }
 								  
 								}
+							$listaAl = trim($listaAl,",");
+							$listaAl = str_replace(",",", ",$listaAl);
+							echo $listaAl;
 							;?></span>
 							
 						</div>
@@ -195,14 +199,18 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 							. $fila["IDPLATO"]
 							." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND ALIMENTOS.ALERGENO = ALERGENOS.IDALERGENO";
 							$alergenos=consulta_alimentos($conexion3,$query3);
+							$listaAler="";
 							foreach($alergenos as $alergen)
 								 {
 								  foreach(array_unique($alergen) as $alerg) {
-									echo $alerg . ", ";
+									$listaAler .= $alerg . ",";
 								  }
 								  
 								}
-							;?>
+							$listaAler = trim($listaAler,",");
+							$listaAler = str_replace(",",", ",$listaAler);
+							echo $listaAler;
+						;?>
 							
 							</span>
 							
