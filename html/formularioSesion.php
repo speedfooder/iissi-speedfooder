@@ -45,18 +45,16 @@
 			$("#altaUsuario").on("submit", function() {
 				return validateForm();
 			});
-			
-			// EJERCICIO 2: Manejador de evento para copiar automáticamente el email como nick del usuario
+		/*	
 			$("#email").on("input", function(){
 				$("#usuario").val($(this).val());
 			});
 
-			// EJERCICIO 3: Manejador de evento del color de la contraseña
 			$("#contrasena").on("keyup", function() {
 				// Calculo el color
 				passwordColor();
 			});
-		});
+		});*/
 	</script>
 	
 	
