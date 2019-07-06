@@ -14,8 +14,6 @@
 	else
 		$formulario = $_SESSION["formulario"];
 		
-		#unset($formulario);
-			
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"])){
 		$errores = $_SESSION["errores"];
