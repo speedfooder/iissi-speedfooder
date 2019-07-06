@@ -34,10 +34,10 @@ function elimina_plato($conexion,$idplato) {
 
 function actualiza_plato($conexion,$idplato,$nombrePlato, $precioPlato) {
 	try {
-		$stmt=$conexion->prepare('CALL ACTUALIZA_PLATO(:idplato,:nombrePlato, :precioPlato)');
+		$stmt=$conexion->prepare('CALL ACTUALIZA_NOMBRE_PLATO(:idplato,:nombrePlato)');
 		$stmt->bindParam(':idplato',$idplato);
 		$stmt->bindParam(':nombrePlato',$nombrePlato);
-		$stmt->bindParam(':precioPlato',$precioPlato);
+		//$stmt->bindParam(':precioPlato',$precioPlato);
 		$stmt->execute();
 		return "";
 	} catch(PDOException $e) {
