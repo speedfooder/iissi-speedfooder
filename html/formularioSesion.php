@@ -36,7 +36,8 @@
     <meta charset="UTF-8">
     <title>Inicio de Sesión</title>
     <script src="../js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="../css/signinform.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="../css/signinform.css">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Overpass" rel="stylesheet">
 </head>
 <body>
@@ -48,16 +49,16 @@
 				return validateForm();
 			});
 			
-			// EJERCICIO 2: Manejador de evento para copiar automáticamente el email como nick del usuario
+			// Copiar automáticamente el email como usuario
 			$("#email").on("input", function(){
 				$("#usuario").val($(this).val());
 			});
 
-			// EJERCICIO 3: Manejador de evento del color de la contraseña
-			$("#contrasena").on("keyup", function() {
+			/* Colorea la contraseña segun la fortaleza de esta
+			$("#password").on("keyup", function() {
 				// Calculo el color
 				passwordColor();
-			});
+			});*/
 		});
 	</script>
 	
