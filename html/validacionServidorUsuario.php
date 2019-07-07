@@ -19,7 +19,7 @@ if (isset($_SESSION["formulario"])) {
     $_SESSION["formulario"] = $nuevoUsuario;		
 }
 else{
-    Header("Location: insercionusuario.php");
+    Header("Location: formularioSesion.php");
 } // En caso contrario, vamos al formulario
     
 
@@ -32,7 +32,7 @@ else{
 	if (count($errores)>0) {
 		// Guardo en la sesión los mensajes de error y volvemos al formulario
 		$_SESSION["errores"] = $errores;
-		Header('Location: insercionusuario.php');
+		Header('Location: formularioSesion.php');
 	} else
 		// Si todo va bien, vamos a la página de acción (inserción del usuario en la base de datos)
 		Header('Location: accion_alta_usuario.php');
