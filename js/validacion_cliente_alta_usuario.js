@@ -1,5 +1,4 @@
 // Funciones de validación
-	// EJERCICIO 3: Validación del formulario en cliente con Javascript (después de la validación de HTML5)
 	function validateForm() {
 		var noValidation = document.getElementById("#altaUsuario").novalidate;
 		
@@ -30,7 +29,6 @@
 			return true;
 	}
 
-	// EJERCICIO 3.1: Comprobar la restricciones del password y aplicar clases CSS mediante JQuery
 	function passwordValidation(){
 		var password = document.getElementById("password");
 		var pwd = password.value;

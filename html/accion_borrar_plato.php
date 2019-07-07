@@ -32,3 +32,11 @@
 	}
 	else Header("Location: menu.php"); // Se ha tratado de acceder directamente a este PHP
 ?>
+
+<?
+/* EXISTENCIA DE ESTE FICHERO
+
+	Este fichero existe por motivos de futuras actualizaciones para otro equipo del proyecto. durante el desarrollo de la primera
+	versión estable de este proyecto, se abandonó la idea de eliminar platos desde la interfaz de admin. Por tanto este fichero ha perdido toda utilidad.
+*/
+?>

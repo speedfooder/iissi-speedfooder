@@ -19,8 +19,6 @@
 	else
 		$formulario = $_SESSION["formulario"];
 		
-		#unset($formulario);
-			
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"])){
 		$errores = $_SESSION["errores"];
@@ -47,8 +45,7 @@
 		$(document).ready(function() {
 			$("#altaUsuario").on("submit", function() {
 				return validateForm();
-			});
-			
+			});			
 			// Copiar automáticamente el email como usuario
 			$("#email").on("input", function(){
 				$("#usuario").val($(this).val());
@@ -59,7 +56,6 @@
 				// Calculo el color
 				passwordColor();
 			});*/
-		});
 	</script>
 	
 	
