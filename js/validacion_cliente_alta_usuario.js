@@ -67,45 +67,26 @@
 	        passwd.setCustomValidity(error);
 		return error;
 	}
-
-	//Calcula la fortaleza de una contraseña: frecuencia de repetición de caracteres
-	function passwordStrength(password){
-    		// Creamos un Map donde almacenar las ocurrencias de cada carácter
-    		var letters = {};
-
-    		// Recorremos la contraseña carácter por carácter
-    		var length = password.length;
-    		for(x = 0, length; x < length; x++) {
-        		// Consultamos el carácter en la posición x
-        		var l = password.charAt(x);
-
-        		// Si NO existe en el Map, inicializamos su contador a uno
-        		// Si ya existía, incrementamos el contador en uno
-        		letters[l] = (isNaN(letters[l])? 1 : letters[l] + 1);
-    		}
-
-    		// Devolvemos el cociente entre el número de caracteres únicos (las claves del Map)
-		// y la longitud de la contraseña
-    		return Object.keys(letters).length / length;
-	}
 	
 	//Coloreado del campo de contraseña según su fortaleza
 	function passwordColor(){
-		var passField = document.getElementById("pass");
-		var strength = passwordStrength(passField.value);
 		
-		if(!isNaN(strength)){
-			var type = "weakpass";
+		var passField = document.getElementById("password");
+		var pass = passField.value;
+		
+		//Minusculas, mayusculas, numeros y simbolos.
+		var StrongPass = /^(?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9])(?=\S*?[$-\/:-?{-~!"#^_`\[\]])\S{8,}$/;
+		
+		var type = "weakpass";
 			if(passwordValidation()!=""){
 				type = "weakpass";
-			}else if(strength > 0.7){
-				type = "strongpass";
-			}else if(strength > 0.4){
+			}else{
 				type = "middlepass";
+				if(StrongPass.test(pass)){
+					type = "strongpass";
+				}
 			}
-		}else{
-			type = "nanpass";
-		}
+		
 		passField.className = type;
 		
 		return type;

@@ -31,7 +31,7 @@ p#titulo{
     font-family: 'Barlow Condensed', sans-serif;
 }
 
-input[type="text"], input[type="mail"], input[type="password"], textarea{
+.form, .nanpass, textarea{
     width: 75%;
     margin-left: 10%;
     height: 5%;
@@ -80,4 +80,43 @@ p#AlertaReg{
     margin-top: 10px;
     padding-bottom: 5px;
     font-family: 'Barlow Condensed', sans-serif;
+}
+
+.strongpass {
+	width: 75%;
+    margin-left: 10%;
+    height: 5%;
+    margin-top: 5px;
+    padding-left: 5%;
+    font-size: 15px;
+    outline: none;
+    border: 0px;
+    border-radius: 3px;
+	background-color: #aaf7a8;
+}
+
+.middlepass {
+	width: 75%;
+    margin-left: 10%;
+    height: 5%;
+    margin-top: 5px;
+    padding-left: 5%;
+    font-size: 15px;
+    outline: none;
+    border: 0px;
+    border-radius: 3px;
+	background-color: #facba5;
+}
+
+.weakpass {
+	width: 75%;
+    margin-left: 10%;
+    height: 5%;
+    margin-top: 5px;
+    padding-left: 5%;
+    font-size: 15px;
+    outline: none;
+    border: 0px;
+    border-radius: 3px;
+	background-color: #ff7575;
 }

@@ -51,11 +51,11 @@
 				$("#usuario").val($(this).val());
 			});
 
-			/* Colorea la contraseña segun la fortaleza de esta
+			// Colorea la contraseña segun la fortaleza de esta
 			$("#password").on("keyup", function() {
 				// Calculo el color
 				passwordColor();
-			});*/
+			});
 		});
 	</script>
 	
@@ -79,12 +79,12 @@
 <section id="formulario">
 <p id="titulo">Regístrate</p>
   <form action="validacionServidorUsuario.php" method="post">
-      <input type="text" id="nombre" name="nombre" size="40" placeholder="Escribe tu nombre" value="<?php echo $formulario['nombre'];?>" required oninput="nameValidation(); ">
-      <input type="text" id="Apellidos" name="apellidos" size="40" placeholder="Escribe tus apellidos" value="<?php echo $formulario['apellidos'];?>">
-      <input type="text" id="DNI" name="dni" size="40" placeholder="Inserta tu DNI" pattern="^[0-9]{8}"  value="<?php echo $formulario['dni'];?>" required oninput="dniValidation(); "> 
-      <input type="mail" id="email" name="email" size="40" placeholder="email/gmail/hotmailyahoo" value="<?php echo $formulario['email'];?>" required oninput="emailValidation(); ">
-      <input type="text" id="usuario" name="usuario" size="40" placeholder="Inventa un usuario chachi" value="<?php echo $formulario['usuario'];?>" required>
-      <input type="password" id="password" name="contrasena" size="40" placeholder="Escribe tu contraseña super secreta" required oninput="passwordValidation(); ">
+      <input class="form" type="text" id="nombre" name="nombre" size="40" placeholder="Escribe tu nombre" value="<?php echo $formulario['nombre'];?>" required oninput="nameValidation(); ">
+      <input class="form" type="text" id="Apellidos" name="apellidos" size="40" placeholder="Escribe tus apellidos" value="<?php echo $formulario['apellidos'];?>">
+      <input class="form" type="text" id="DNI" name="dni" size="40" placeholder="Inserta tu DNI" pattern="^[0-9]{8}"  value="<?php echo $formulario['dni'];?>" required oninput="dniValidation(); "> 
+      <input class="form" type="mail" id="email" name="email" size="40" placeholder="email/gmail/hotmailyahoo" value="<?php echo $formulario['email'];?>" required oninput="emailValidation(); ">
+      <input class="form" type="text" id="usuario" name="usuario" size="40" placeholder="Inventa un usuario chachi" value="<?php echo $formulario['usuario'];?>" required>
+      <input class="form" type="password" id="password" name="contrasena" size="40" placeholder="Escribe tu contraseña super secreta" required oninput="passwordValidation(); ">
       
   
   

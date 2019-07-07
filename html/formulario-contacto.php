@@ -49,8 +49,8 @@
 <section id="formulario">
 <p id="titulo">¡Contáctanos!</p>
   <form action="formulario-contacto.php" method="post">
-      <input type="text" id="nombre" name="nombre" size="40" placeholder="Escribe tu nombre" value="<?php echo $formulario['nombre'];?>" required oninput="nameValidation(); ">
-      <input type="mail" id="email" name="email" size="40" placeholder="Escribe tu email" value="<?php echo $formulario['email'];?>" required oninput="mailValidation(); ">
+      <input class="form" type="text" id="nombre" name="nombre" size="40" placeholder="Escribe tu nombre" value="<?php echo $formulario['nombre'];?>" required oninput="nameValidation(); ">
+      <input class="form" type="mail" id="email" name="email" size="40" placeholder="Escribe tu email" value="<?php echo $formulario['email'];?>" required oninput="mailValidation(); ">
 	  <textarea name="opinion" rows="5" cols="10" placeholder="Cuéntanos tu opinión..."></textarea>
   
     <input type="submit" value="Enviar">
