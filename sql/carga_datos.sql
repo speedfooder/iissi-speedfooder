@@ -1,23 +1,23 @@
 /* CONSUMIDORES */
-execute elimina_cliente(11111111);
-execute elimina_cliente(11111113);
-execute elimina_cliente(11111114);
-execute elimina_cliente(11111115);
-execute elimina_cliente(11111116);
-execute elimina_cliente(11111117);
-execute elimina_cliente(11111118);
-execute elimina_cliente(11111119);
+execute elimina_cliente(08851212);
+execute elimina_cliente(69875148);
+execute elimina_cliente(30683446);
+execute elimina_cliente(55353855);
+execute elimina_cliente(44006180);
+execute elimina_cliente(32581836);
+execute elimina_cliente(85989372);
+execute elimina_cliente(86531448);
 execute elimina_cliente(37019020);
 
-execute crea_cliente(11111111, 'Juana', 'Lopez', 'juanalopez@gmail.com', 'jualop', 'juana1234');
-execute crea_cliente(11111113, 'Daniel', 'Lopez', 'juanalopez@gmail.com', 'danlop', 'juana1234');
-execute crea_cliente(11111114, 'Unai', 'Lopez', 'juanalopez@gmail.com', 'unalop', 'juana1234');
-execute crea_cliente(11111115, 'Aitor', 'Lopez', 'juanalopez@gmail.com', 'aitlop', 'juana1234');
-execute crea_cliente(11111116, 'Jose Maria', 'Lopez', 'josemarialopez@gmail.com', 'joslop', 'juana1234');
-execute crea_cliente(11111117, 'Janire', 'Lopez', 'juanalopez@gmail.com', 'janlop', 'juana1234');
-execute crea_cliente(11111118, 'Victor', 'Lopez', 'juanalopez@gmail.com', 'viclop', 'juana1234');
-execute crea_cliente(11111119, 'Beatriz', 'Lopez', 'juanalopez@gmail.com', 'bealop', 'juana1234');
-execute crea_cliente(37019020,'Samuel','Smith','samusmithcorp@gmail.com','AdminMaster','admin1234X');
+execute crea_cliente(08851212, 'Juana', 'Lopez', 'juanalopez@gmail.com', 'jualop', 'JuanaLop1234');
+execute crea_cliente(69875148, 'Daniel', 'Sanchez', 'dnsanchez@gmail.com', 'dnsanch', 'DaniXTI163');
+execute crea_cliente(30683446, 'Unai', 'Garay', 'uanigrysky@gmail.com', 'unaigar', 'GaraGary35');
+execute crea_cliente(55353855, 'Aitor', 'Diaz', 'todzcorp@gmail.com', 'aitodiz', '54DzrtxAito');
+execute crea_cliente(44006180, 'Jose Maria', 'Tena', 'josemariatena98@gmail.com', 'jomatena', 'JTN46mrvdia');
+execute crea_cliente(32581836, 'Janire', 'Lopez', 'janiiilp8@gmail.com', 'janilopi', 'drknTO4get25');
+execute crea_cliente(85989372, 'Victor', 'Ramos', 'vctmail91@gmail.com', 'victrammas', 'GoxR26frsh');
+execute crea_cliente(86531448, 'Abel Joaquin', 'Morales', 'abquinarlequin@gmail.com', 'abequin', 'ArleQuine1980');
+execute crea_cliente(37019020,'Samuel','Smith','samusmithcorp@gmail.com','admin','admin1234X');
 
 /* ALERGENOS */
 execute eliminaAlergenos('gluten');
