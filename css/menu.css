@@ -227,3 +227,39 @@ border-bottom: 2px solid #fcf2e0;
 text-align: center;
 width: 20%;
 }
+
+button {
+	background-color: transparent;
+	border: none;
+	height:100%;
+	width:100%;
+}
+
+.botones_fila {
+display: block-inline;
+}
+
+#aliment {
+	float:left;
+	width:50%;
+}
+
+#alerg {
+	float:right;
+	width:50%;
+}
+
+#editar {
+	float:right;
+	width:50%;
+}
+
+#precio {
+	float:left;
+	width:50%;
+}
+
+#grabar {
+	float:right;
+	width:50%;
+}

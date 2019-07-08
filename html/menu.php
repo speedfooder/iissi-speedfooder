@@ -238,15 +238,23 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 				<?php } ?>
 
-				<div id="botones_fila">
-				<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {
+			<div id="botones_fila">
+			<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {
+				
+			?>
 					
-				?>		
+							<button id="precio" name="precio" type="submit" class="editar_fila">
+
+								<img src="../images/ic-precio.png" alt="Guardar modificación">
+
+							</button>
+					
+						
 					<?php if (isset($plato) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
 
 							<button id="grabar" name="grabar" type="submit" class="editar_fila">
 
-								<img src="../images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
+								<img src="../images/ic-save.png" class="editar_fila" alt="Guardar modificación">
 
 							</button>
 
@@ -254,14 +262,24 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 							<button id="editar" name="editar" type="submit" class="editar_fila">
 
-								<img src="../images/pencil_menuito.bmp" class="editar_fila" alt="Editar plato">
+								<img src="../images/ic-edit.png" class="editar_fila" alt="Editar plato">
 
 							</button>
 
 					<?php } ?>
-
+					
+							
+				
 						
 					<?php }?>
+					
+					<button id="aliment" onclick="alimento.php">
+					<img src="../images/ic-food.png">
+					</button>
+			
+					<button id="alerg" onclick="alergeno.php">
+					<img src="../images/ic-alergeno.png">
+					</button>
 				</div>
 				</th>
 				</tr>
