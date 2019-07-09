@@ -273,9 +273,22 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 					<?php } ?>
 
-					<button id="precio" name="precio" type="submit" class="editar_fila">
+					<?php if (isset(/*variable nueva guardada en sesion */) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
+
+							<button id="grabar" name="grabarprecio" type="submit" class="editar_fila">
+
+								<img src="../images/ic-save.png" class="editar_fila" alt="Guardar modificación">
+
+							</button>
+
+					<?php } else { ?>
+
+						<button id="precio" name="editprecio" type="submit" class="editar_fila">
 						<img src="../images/ic-precio.png" alt="Guardar modificación">
-					</button>
+						</button>
+
+					<?php } ?>		
+					
 
 					<button id="aliment" onclick="alimento.php">
 					<img src="../images/ic-food.png">
