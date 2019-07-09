@@ -162,18 +162,19 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				
 				<table>
 				<tr>
-				<th>
+				<th class="columnas">
 
 						<!-- mostrando plato -->
 
 						<!-- <input id="TITULO" name="TITULO" type="hidden" value="<?php echo $fila["IDPLATO"]; ?>"/> -->
 
 						<div><b><?php echo $fila["NOMBRE"]; ?></b></div>
-				<th>
+				</th>
+				<th  class="columnas">
 						<div><em><?php echo $fila["PRECIO"]; ?></em>€</div>
 				</th>
-				</th>
-				<th>
+				
+				<th class="columnas">
 						<div>
 						
 						<div class="popup" onclick="myFunction(<?php echo $fila["IDPLATO"];?>)"> Alimentos
@@ -201,7 +202,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 							
 						</div>
 					</th>
-					<th>
+					<th class="columnas">
 				
 						<div class="popup" onclick="FunctionAlerg(<?php echo $fila["IDPLATO"];?>)">Alergenos
 							<span class="popuptext" id=<?php echo "Popupalerg".$fila["IDPLATO"];?>>
@@ -229,7 +230,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						</div>
 				</div>
 				</th>
-				<th>
+				<th id="c-icono">
 
 				<?php
 
@@ -273,7 +274,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 					<?php } ?>
 
-					<?php if (isset(/*variable nueva guardada en sesion */) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
+					<?php if (isset($plato)) { ?>
 
 							<button id="grabar" name="grabarprecio" type="submit" class="editar_fila">
 
@@ -296,6 +297,10 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 			
 					<button id="alerg" onclick="alergeno.php">
 					<img src="../images/ic-alergeno.png">
+					</button>
+					
+					<button id="delete">
+					<img src="../images/ic-delete.png">
 					</button>
 
 				<?php }?>
