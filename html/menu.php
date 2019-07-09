@@ -256,13 +256,13 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 						<!-- Editando precio -->
 
-						<h3><input id="precio" name="precio" type="text" value="<?php echo $fila["PRECIO"]; ?>"/>	</h3>
+						<h3><input class="precio" name="precio" type="text" value="<?php echo $fila["PRECIO"]; ?>"/>	</h3>
 
 					<?php }	else { ?>
 
 						<!-- mostrando precio -->
 
-						<input id="precio" name="precio" type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
+						<input class="i-precio" name="precio" type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
 					<?php } ?>
 					
 					
