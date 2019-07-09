@@ -146,6 +146,9 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 				type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 
+			<input id="PRECIO" name="PRECIO"
+
+				type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
 			<div>
 				
 				<table>
@@ -164,7 +167,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				<th>
 						<div>
 						
-						<div class="popup" onclick="myFunction(<?php echo $fila["IDPLATO"];?>)">Alimentos
+						<div class="popup" onclick="myFunction(<?php echo $fila["IDPLATO"];?>)"> Alimentos
 							<span class="popuptext" id=<?php echo "Popupalimentos".$fila["IDPLATO"];?>><?php
 							$platoSeleccionado = $fila["IDPLATO"];
 							$conexion2=crearConexionBD();
@@ -243,12 +246,6 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				
 			?>
 					
-							<button id="precio" name="precio" type="submit" class="editar_fila">
-
-								<img src="../images/ic-precio.png" alt="Guardar modificación">
-
-							</button>
-					
 						
 					<?php if (isset($plato) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
 
@@ -272,7 +269,11 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				
 						
 					<?php }?>
-					
+					<button id="precio" name="precio" type="submit" class="editar_fila">
+
+								<img src="../images/ic-precio.png" alt="Guardar modificación">
+
+							</button>
 					<button id="aliment" onclick="alimento.php">
 					<img src="../images/ic-food.png">
 					</button>
