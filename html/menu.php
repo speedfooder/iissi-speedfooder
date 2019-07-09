@@ -233,30 +233,41 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				<th id="c-icono">
 
 				<?php
-
-					if (isset($plato) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
+					if (isset($plato) and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
 
 						<!-- Editando título -->
 
 						<h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/>	</h3>
 
-						
-
-				<?php }	else { ?>
+					<?php }	else { ?>
 
 						<!-- mostrando título -->
 
 						<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
-
-
 				<?php } ?>
+				
+				<?php
+					if (isset($plato) and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
+
+						<!-- Editando precio -->
+
+						<h3><input id="precio" name="precio" type="text" value="<?php echo $fila["PRECIO"]; ?>"/>	</h3>
+
+					<?php }	else { ?>
+
+						<!-- mostrando precio -->
+
+						<input id="precio" name="precio" type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
+					<?php } ?>
+					
+					
 
 			<div id="botones_fila">
 
 			<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
 					
 						
-					<?php if (isset($plato) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
+					<?php if (isset($plato) and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
 
 							<button id="grabar" name="grabar" type="submit" class="editar_fila">
 
@@ -274,7 +285,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 					<?php } ?>
 
-					<?php if (isset($plato)) { ?>
+					<?php if (isset($plato) and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
 
 							<button id="grabar" name="grabarprecio" type="submit" class="editar_fila">
 
@@ -291,15 +302,15 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 					<?php } ?>		
 					
 
-					<button id="aliment" onclick="alimento.php">
+					<button id="aliment" formaction="alimento.php">
 					<img src="../images/ic-food.png">
 					</button>
 			
-					<button id="alerg" onclick="alergeno.php">
+					<button id="alerg" formaction="alergeno.php">
 					<img src="../images/ic-alergeno.png">
 					</button>
 					
-					<button id="delete">
+					<button id="delete" formaction="accion_borrar_plato.php">
 					<img src="../images/ic-delete.png">
 					</button>
 
