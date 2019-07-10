@@ -307,15 +307,15 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 					<?php } ?>		
 					
 
-					<button id="aliment" formaction="alimento.php">
+					<button id="aliment" name="aliment" type="submit">
 					<img src="../images/ic-food.png">
 					</button>
 			
-					<button id="alerg" formaction="alergeno.php">
+					<button id="alerg" name="alerg" type="submit">
 					<img src="../images/ic-alergeno.png">
 					</button>
 					
-					<button id="delete" formaction="accion_borrar_plato.php">
+					<button id="delete" name="delete" type="submit">
 					<img src="../images/ic-delete.png">
 					</button>
 
