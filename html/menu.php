@@ -11,8 +11,13 @@ if (isset($_SESSION["plato"])) {
 		$plato = $_SESSION["plato"];
 		unset($_SESSION["plato"]);
 	}
-if (isset($_SESSION["paginacion"]))
+if (isset($_SESSION["paginacion"])){
 		$paginacion = $_SESSION["paginacion"];
+}
+if (isset($_SESSION["opcion"])){
+	$option=$_SESSION["opcion"];
+	unset($_SESSION["opcion"]);
+}
 
 $pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
 	$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 5);
@@ -146,25 +151,38 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 				type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 
+			<input id="PRECIO" name="PRECIO"
+
+				type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
+			
+			<input id="alimentos" name="alimentos"
+
+				type="hidden" value="<?php echo $fila["IDPLATO"]; ?>"/>
+			
+			<input id="alergenos" name="alergenos"
+
+				type="hidden" value="<?php echo $fila["IDPLATO"]; ?>"/>
+			
 			<div>
 				
 				<table>
 				<tr>
-				<th>
+				<th class="columnas">
 
 						<!-- mostrando plato -->
 
 						<!-- <input id="TITULO" name="TITULO" type="hidden" value="<?php echo $fila["IDPLATO"]; ?>"/> -->
 
 						<div><b><?php echo $fila["NOMBRE"]; ?></b></div>
-				<th>
+				</th>
+				<th  class="columnas">
 						<div><em><?php echo $fila["PRECIO"]; ?></em>€</div>
 				</th>
-				</th>
-				<th>
+				
+				<th class="columnas">
 						<div>
 						
-						<div class="popup" onclick="myFunction(<?php echo $fila["IDPLATO"];?>)">Alimentos
+						<div class="popup" onclick="myFunction(<?php echo $fila["IDPLATO"];?>)"> Alimentos
 							<span class="popuptext" id=<?php echo "Popupalimentos".$fila["IDPLATO"];?>><?php
 							$platoSeleccionado = $fila["IDPLATO"];
 							$conexion2=crearConexionBD();
@@ -189,7 +207,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 							
 						</div>
 					</th>
-					<th>
+					<th class="columnas">
 				
 						<div class="popup" onclick="FunctionAlerg(<?php echo $fila["IDPLATO"];?>)">Alergenos
 							<span class="popuptext" id=<?php echo "Popupalerg".$fila["IDPLATO"];?>>
@@ -217,40 +235,44 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						</div>
 				</div>
 				</th>
-				<th>
+				<th id="c-icono">
 
 				<?php
-
-					if (isset($plato) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
+					if (isset($plato) and $option==1 and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
 
 						<!-- Editando título -->
 
 						<h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/>	</h3>
 
-						
-
-				<?php }	else { ?>
+					<?php }	else { ?>
 
 						<!-- mostrando título -->
 
 						<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
-
-
 				<?php } ?>
+				
+				<?php
+					if (isset($plato) and $option==2 and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
+
+						<!-- Editando precio -->
+
+						<h3><input id="precio" name="precio" type="text" value="<?php echo $fila["PRECIO"]; ?>"/>	</h3>
+
+					<?php }	else { ?>
+
+						<!-- mostrando precio -->
+
+						<input id="precio" name="precio" type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
+					<?php } ?>
+					
+					
 
 			<div id="botones_fila">
-			<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {
-				
-			?>
-					
-							<button id="precio" name="precio" type="submit" class="editar_fila">
 
-								<img src="../images/ic-precio.png" alt="Guardar modificación">
-
-							</button>
+			<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
 					
 						
-					<?php if (isset($plato) and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
+					<?php if (isset($plato) and $option==1 and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
 
 							<button id="grabar" name="grabar" type="submit" class="editar_fila">
 
@@ -267,19 +289,38 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 							</button>
 
 					<?php } ?>
+
+					<?php if (isset($plato) and $option==2 and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
+
+							<button id="grabar" name="grabarprecio" type="submit" class="editar_fila">
+
+								<img src="../images/ic-save.png" class="editar_fila" alt="Guardar modificación">
+
+							</button>
+
+					<?php } else { ?>
+
+						<button id="precio" name="editprecio" type="submit" class="editar_fila">
+						<img src="../images/ic-precio.png" alt="Guardar modificación">
+						</button>
+
+					<?php } ?>		
 					
-							
-				
-						
-					<?php }?>
-					
-					<button id="aliment" onclick="alimento.php">
+
+					<button id="aliment" formaction="alimento.php">
 					<img src="../images/ic-food.png">
 					</button>
 			
-					<button id="alerg" onclick="alergeno.php">
+					<button id="alerg" formaction="alergeno.php">
 					<img src="../images/ic-alergeno.png">
 					</button>
+					
+					<button id="delete" formaction="accion_borrar_plato.php">
+					<img src="../images/ic-delete.png">
+					</button>
+
+				<?php }?>
+					
 				</div>
 				</th>
 				</tr>

@@ -218,6 +218,7 @@ background-color: #47403e;
 table {
 	height: 100%;
 	width:100%;
+	margin:auto;
 }
 
 th {
@@ -241,25 +242,40 @@ display: block-inline;
 
 #aliment {
 	float:left;
-	width:50%;
+	width:20%;
 }
 
 #alerg {
-	float:right;
-	width:50%;
+	float:left;
+	width:20%;
 }
 
 #editar {
-	float:right;
-	width:50%;
+	float:left;
+	width:20%;
 }
 
 #precio {
 	float:left;
-	width:50%;
+	width:20%;
 }
 
 #grabar {
-	float:right;
-	width:50%;
+	float:left;
+	width:20%;
+}
+
+#delete {
+	float:left;
+	width:20%;
+}
+
+.columnas {
+	width: 12.5%;
+	
+}
+
+#c-icono {
+	padding-right:10%;
+	width:40%;
 }

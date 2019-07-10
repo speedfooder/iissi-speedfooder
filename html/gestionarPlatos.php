@@ -44,4 +44,17 @@ function actualiza_plato($conexion,$idplato,$nombrePlato, $precioPlato) {
 		return $e->getMessage();
     }
 }
+
+function actualiza_precio_plato($conexion,$idplato,$nombrePlato, $precioPlato) {
+	try {
+		$stmt=$conexion->prepare('CALL ACTUALIZA_PLATO(:idplato,:nombrePlato, :precioPlato)');
+		$stmt->bindParam(':idplato',$idplato);
+		$stmt->bindParam(':nombrePlato',$nombrePlato);
+		$stmt->bindParam(':precioPlato',$precioPlato);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
 ?>
