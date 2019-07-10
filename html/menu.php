@@ -11,8 +11,13 @@ if (isset($_SESSION["plato"])) {
 		$plato = $_SESSION["plato"];
 		unset($_SESSION["plato"]);
 	}
-if (isset($_SESSION["paginacion"]))
+if (isset($_SESSION["paginacion"])){
 		$paginacion = $_SESSION["paginacion"];
+}
+if (isset($_SESSION["opcion"])){
+	$option=$_SESSION["opcion"];
+	unset($_SESSION["opcion"]);
+}
 
 $pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
 	$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 5);
@@ -233,7 +238,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				<th id="c-icono">
 
 				<?php
-					if (isset($plato) and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
+					if (isset($plato) and $option==1 and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
 
 						<!-- Editando título -->
 
@@ -247,7 +252,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				<?php } ?>
 				
 				<?php
-					if (isset($plato) and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
+					if (isset($plato) and $option==2 and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
 
 						<!-- Editando precio -->
 
@@ -267,7 +272,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 			<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
 					
 						
-					<?php if (isset($plato) and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
+					<?php if (isset($plato) and $option==1 and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
 
 							<button id="grabar" name="grabar" type="submit" class="editar_fila">
 
@@ -285,7 +290,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 					<?php } ?>
 
-					<?php if (isset($plato) and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
+					<?php if (isset($plato) and $option==2 and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
 
 							<button id="grabar" name="grabarprecio" type="submit" class="editar_fila">
 
