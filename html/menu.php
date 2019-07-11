@@ -290,7 +290,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 					<?php } ?>
 
-					<?php if (isset($plato) and $option==2 and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
+					<?php if (isset($plato) and $option==2 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { //and ($plato["PRECIO"] == $fila["PRECIO"]))?> 
 
 							<button id="grabar" name="grabarprecio" type="submit" class="editar_fila">
 
