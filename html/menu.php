@@ -238,7 +238,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				<th id="c-icono">
 
 				<?php
-					if (isset($plato) and $option==1 and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
+					if (isset($plato) and $option==1 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
 
 						<!-- Editando título -->
 
@@ -252,7 +252,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				<?php } ?>
 				
 				<?php
-					if (isset($plato) and $option==2 and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
+					if (isset($plato) and $option==2 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
 
 						<!-- Editando precio -->
 
@@ -272,7 +272,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 			<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
 					
 						
-					<?php if (isset($plato) and $option==1 and ($plato["NOMBRE"] == $fila["NOMBRE"])) { ?>
+					<?php if (isset($plato) and $option==1 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
 
 							<button id="grabar" name="grabar" type="submit" class="editar_fila">
 
@@ -290,7 +290,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 					<?php } ?>
 
-					<?php if (isset($plato) and $option==2 and ($plato["PRECIO"] == $fila["PRECIO"])) { ?>
+					<?php if (isset($plato) and $option==2 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
 
 							<button id="grabar" name="grabarprecio" type="submit" class="editar_fila">
 
