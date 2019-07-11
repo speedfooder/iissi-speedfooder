@@ -11,6 +11,10 @@ if (isset($_SESSION["plato"])) {
 		$plato = $_SESSION["plato"];
 		unset($_SESSION["plato"]);
 	}
+if (isset($_SESSION["alimento"])) {
+		$alimento = $_SESSION["alimento"];
+		unset($_SESSION["alimento"]);
+	}
 if (isset($_SESSION["paginacion"])){
 		$paginacion = $_SESSION["paginacion"];
 }
@@ -125,10 +129,12 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 	?>
 
 
-
+	<table>
+	<tr>
+	<th class="columnas">
 	<article >
 
-		<form method="post" class="plato" action="controlador_platos.php">
+		<form method="post" class="plato" action="controlador_alimento.php">
 		
 
 			<input id="IDALIMENTO" name="IDALIMENTO"
@@ -154,7 +160,88 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						<div><em><?php echo $fila["NOMBRE"]; ?></em></div>
 				</th>
 		
-		</form>
-	</article >		
+	
+<th id="c-icono">
+<?php
+	if (isset($alimento) and $option==1 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
 
-<?php } ?>	
+		<!-- Editando nombre del alimento -->
+
+		<h3><input id="NOMBRE" name="NOMBREALIMENTO" type="text" value="<?php echo $fila["NOMBREALIMENTO"]; ?>"/>	</h3>
+
+	<?php }	else { ?>
+
+		<!-- mostrando nombre del alimento -->
+
+		<input id="NOMBRE" name="NOMBREALIMENTO" type="hidden" value="<?php echo $fila["NOMBREALIMENTO"]; ?>"/>
+<?php } ?>
+
+<?php
+	if (isset($alimento) and $option==2 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+
+		<!-- Editando procedencia -->
+
+		<h3><input class="precio" name="precio" type="text" value="<?php echo $fila["PROCEDENCIA"]; ?>"/>	</h3>
+
+	<?php }	else { ?>
+
+		<!-- mostrando procedencia -->
+
+		<input class="i-precio" name="precio" type="hidden" value="<?php echo $fila["PROCEDENCIA"]; ?>"/>
+<?php } ?>
+
+<div id="botones_fila">
+<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
+					
+						
+			<?php if (isset($alimento) and $option==1 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+
+					<button id="grabar" name="grabarAlimento" type="submit" class="editar_fila">
+
+						<img src="../images/ic-save.png" class="editar_fila" alt="Guardar modificación">
+
+					</button>
+
+			<?php } else { ?>
+
+					<button id="editar" name="editarAlimento" type="submit" class="editar_fila">
+
+						<img src="../images/ic-edit.png" class="editar_fila" alt="Editar plato">
+
+					</button>
+
+			<?php } ?>
+
+			<?php if (isset($alimento) and $option==2 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+
+					<button id="grabar" name="grabarProcAlimento" type="submit" class="editar_fila">
+
+						<img src="../images/ic-save.png" class="editar_fila" alt="Guardar modificación">
+
+					</button>
+
+			<?php } else { ?>
+
+				<button id="precio" name="editarProcAlimento" type="submit" class="editar_fila">
+				<img src="../images/ic-precio.png" alt="Guardar modificación">
+				</button>
+				
+			<?php } ?>
+				
+				<button id="delete" name="deleteAlimento" type="submit">
+				<img src="../images/ic-delete.png">
+				</button>
+				
+
+			
+	<?php } ?>
+
+</div>
+</th>
+</tr>
+</table>
+</form>
+</article >	
+<?php } ?>
+</body>
+</html>
