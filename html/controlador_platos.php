@@ -20,7 +20,7 @@
 		else if (isset($_REQUEST["alerg"])) Header("Location: alergeno.php");
 		else if (isset($_REQUEST["delete"])) Header("Location: accion_borrar_plato.php");
 		else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_plato.php");
-		else if (isset($_REQUEST["precio"])) Header("Location: accion_modificar_precio_plato.php");
+		else if (isset($_REQUEST["grabarprecio"])) Header("Location: accion_modificar_precio_plato.php");
 	}
 	else 
 		Header("Location: menu.php");

@@ -256,13 +256,13 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 						<!-- Editando precio -->
 
-						<h3><input class="precio" name="precio" type="text" value="<?php echo $fila["PRECIO"]; ?>"/>	</h3>
+						<h3><input class="precio" name="PRECIO" type="text" value="<?php echo $fila["PRECIO"]; ?>"/>	</h3>
 
 					<?php }	else { ?>
 
 						<!-- mostrando precio -->
 
-						<input class="i-precio" name="precio" type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
+						<input class="i-precio" name="PRECIO" type="hidden" value="<?php echo $fila["PRECIO"]; ?>"/>
 					<?php } ?>
 					
 					
@@ -290,7 +290,11 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 					<?php } ?>
 
+ dev_pricemod
+					<?php if (isset($plato) and $option==2 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?> 
+
 					<?php if (isset($plato) and $option==2 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
+ master
 
 							<button id="grabar" name="grabarprecio" type="submit" class="editar_fila">
 
