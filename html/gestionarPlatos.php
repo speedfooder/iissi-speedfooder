@@ -23,7 +23,7 @@ function consulta_alimentos( $conn, $query)
 
 function elimina_plato($conexion,$idplato) {
 	try {
-		$stmt=$conexion->prepare('CALL ELIMINA_PLATO(:idplato)');
+		$stmt=$conexion->prepare('CALL BORRADOPLATO(:idplato)');
 		$stmt->bindParam(':idplato',$idplato);
 		$stmt->execute();
 		return "";
