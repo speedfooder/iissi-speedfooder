@@ -37,7 +37,7 @@ unset($_SESSION["paginacion"]);
 
 $conexion = crearConexionBD();
 
-	$query=	"SELECT DISTINCT NOMBREALIMENTO, NOMBRE FROM ALIMENTOS,PLATOSALIMENTOS, PROVEEDORES WHERE PLATOSALIMENTOS.IDPLATO=" . $plato["IDPLATO"]
+	$query=	"SELECT DISTINCT ALIMENTOS.IDALIMENTO, NOMBREALIMENTO, NOMBRE FROM ALIMENTOS,PLATOSALIMENTOS, PROVEEDORES WHERE PLATOSALIMENTOS.IDPLATO=" . $plato["IDPLATO"]
 		 ." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND PROVEEDORES.EIN = ALIMENTOS.PROCEDENCIA"
 		 . " ORDER BY NOMBREALIMENTO";
 		
@@ -125,6 +125,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 	<?php
 
 		foreach($filas as $fila) {
+			print_r($fila);
 
 	?>
 
@@ -133,7 +134,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 	<tr>
 	<th class="columnas">
 	<article >
-
+		
 		<form method="post" class="plato" action="controlador_alimento.php">
 		
 
@@ -163,7 +164,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 	
 <th id="c-icono">
 <?php
-	if (isset($alimento) and $option==1 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+	if (isset($alimento) and $option==1 and ($alimento["IDALIMENTO"] == $fila["ALIMENTOS.IDALIMENTO"])) { ?>
 
 		<!-- Editando nombre del alimento -->
 
@@ -177,7 +178,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 <?php } ?>
 
 <?php
-	if (isset($alimento) and $option==2 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+	if (isset($alimento) and $option==2 and ($alimento["IDALIMENTO"] == $fila["ALIMENTOS.IDALIMENTO"])) { ?>
 
 		<!-- Editando procedencia -->
 
@@ -194,7 +195,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 <?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
 					
 						
-			<?php if (isset($alimento) and $option==1 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+			<?php if (isset($alimento) and $option==1 and ($alimento["IDALIMENTO"] == $fila["ALIMENTOS.IDALIMENTO"])) { ?>
 
 					<button id="grabar" name="grabarAlimento" type="submit" class="editar_fila">
 
@@ -212,7 +213,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 			<?php } ?>
 
-			<?php if (isset($alimento) and $option==2 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+			<?php if (isset($alimento) and $option==2 and ($alimento["IDALIMENTO"] == $fila["ALIMENTOS.IDALIMENTO"])) { ?>
 
 					<button id="grabar" name="grabarProcAlimento" type="submit" class="editar_fila">
 
