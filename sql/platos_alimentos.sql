@@ -9,9 +9,10 @@ CREATE OR REPLACE PROCEDURE añade_alimento_en_plato
 /   
 /* Procedimiento para eliminar un alimento de un plato */
 CREATE OR REPLACE PROCEDURE elimina_alimento_de_plato
-    (w_idplatoalimento IN platosalimentos.idplatoalimento%TYPE) IS
+    (w_idalimento IN alimentos.idalimento%TYPE) IS
     BEGIN
-        DELETE FROM platosalimentos WHERE w_idplatoalimento = platosalimentos.idplatoalimento;
+        DELETE FROM platosalimentos WHERE w_idalimento = platosalimentos.idalimento;
+        DELETE FROM alimentos WHERE w_idalimento = alimentos.idalimento;
     END elimina_alimento_de_plato;
 /
 CREATE OR REPLACE PROCEDURE eliminaDepPlato (w_idplato IN platosalimentos.idplato%type) IS
