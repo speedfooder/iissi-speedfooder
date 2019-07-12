@@ -76,3 +76,11 @@ DBMS_OUTPUT.PUT_LINE
 (cursorAlimentorec.nombrealimento);
 END LOOP;
 end;
+/
+/*borrado absoluto de un plato en cualquier tabla recibiendo la ID del mismo*/
+create or replace procedure borradoplato(w_idplato PLATOS.IDPLATO%TYPE) AS
+    begin
+        delete from PLATOSALIMENTOS where PLATOSALIMENTOS.IDPLATO= w_idplato;
+        delete from PLATOS where PLATOS.IDPLATO=w_idplato;
+    end;
+/
