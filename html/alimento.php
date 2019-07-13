@@ -20,6 +20,7 @@ if (isset($_SESSION["paginacion"])){
 if (isset($_SESSION["opcion"])){
 	$option=$_SESSION["opcion"];
 	unset($_SESSION["opcion"]);
+	$option;
 }
 
 $pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
