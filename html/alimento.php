@@ -8,9 +8,14 @@ require_once ("paginacion_consulta.php");
 
 
 if (isset($_SESSION["plato"])) {
-		$plato = $_SESSION["plato"];
+			$plato1 = $_SESSION["plato"];
 		unset($_SESSION["plato"]);
-	}
+		$_SESSION["platotrabajo"]=$plato1;
+	}else if (isset($_SESSION["platotrabajo"])){
+	$plato1=$_SESSION["platotrabajo"];
+}else{
+	header ("Location: menu.php");
+}
 if (isset($_SESSION["paginacion"])){
 		$paginacion = $_SESSION["paginacion"];
 }
@@ -33,7 +38,7 @@ unset($_SESSION["paginacion"]);
 
 $conexion = crearConexionBD();
 
-	$query=	"SELECT DISTINCT NOMBREALIMENTO, NOMBRE FROM ALIMENTOS,PLATOSALIMENTOS, PROVEEDORES WHERE PLATOSALIMENTOS.IDPLATO=" . $plato["IDPLATO"]
+	$query=	"SELECT DISTINCT NOMBREALIMENTO, NOMBRE FROM ALIMENTOS,PLATOSALIMENTOS, PROVEEDORES WHERE PLATOSALIMENTOS.IDPLATO=" . $plato1["IDPLATO"]
 		 ." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND PROVEEDORES.EIN = ALIMENTOS.PROCEDENCIA"
 		 . " ORDER BY NOMBREALIMENTO";
 		

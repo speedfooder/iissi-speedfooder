@@ -7,6 +7,9 @@ require_once ("gestionarPlatos.php");
 require_once ("paginacion_consulta.php");
 
 
+if (isset($_SESSION["platotrabajo"])) {
+		unset($_SESSION["platotrabajo"]);
+	}
 if (isset($_SESSION["plato"])) {
 		$plato = $_SESSION["plato"];
 		unset($_SESSION["plato"]);
