@@ -69,4 +69,14 @@ function elimina_alimento($conexion,$idalimento) {
     }
 }
 
+function elimina_alergeno($conexion,$idalergeno) {
+	try {
+		$stmt=$conexion->prepare('CALL eliminaalergenos(:idalergeno)');
+		$stmt->bindParam(':idalergeno',$idalergeno);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
 ?>

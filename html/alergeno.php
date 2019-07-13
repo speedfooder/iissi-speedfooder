@@ -8,9 +8,14 @@ require_once ("paginacion_consulta.php");
 
 
 if (isset($_SESSION["plato"])) {
-		$plato = $_SESSION["plato"];
-		unset($_SESSION["plato"]);
-	}
+	$plato1 = $_SESSION["plato"];
+unset($_SESSION["plato"]);
+$_SESSION["platotrabajo"]=$plato1;
+}else if (isset($_SESSION["platotrabajo"])){
+$plato1=$_SESSION["platotrabajo"];
+}else{
+header ("Location: menu.php");
+}
 if (isset($_SESSION["paginacion"])){
 		$paginacion = $_SESSION["paginacion"];
 }
@@ -33,8 +38,8 @@ unset($_SESSION["paginacion"]);
 
 $conexion = crearConexionBD();
 
-$query=	"SELECT DISTINCT NOMBREALERGENO FROM ALIMENTOS,ALERGENOS, PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=" 
-	. $plato["IDPLATO"] ." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND ALIMENTOS.ALERGENO = ALERGENOS.IDALERGENO";
+$query=	"SELECT DISTINCT IDALERGENO,NOMBREALERGENO FROM ALIMENTOS,ALERGENOS, PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=" 
+	. $plato1["IDPLATO"] ." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND ALIMENTOS.ALERGENO = ALERGENOS.IDALERGENO";
 		
 							
 
@@ -127,10 +132,10 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 	<article >
 
-		<form method="post" class="plato" action="controlador_platos.php">
+		<form method="post" class="plato" action="controlador_alergenos.php">
 		
 
-			<input id="IDALIMENTO" name="IDALIMENTO"
+			<input id="IDALIMENTO" name="IDALERGENO"
 
 				type="hidden" value="<?php echo $fila["IDALERGENO"]; ?>"/>
 
@@ -145,7 +150,16 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						<!-- mostrando alimento -->
 						<div><b><?php echo $fila["NOMBREALERGENO"]; ?></b></div>
 				</th>
-		
+				</th>
+				<th class="c-icono">
+							<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
+								<button id="delete" name="deleteAlergeno" type="submit">
+									<img src="../images/ic-delete.png">
+								</button>
+							<?php }?>
+						</th>
+					</tr>	
+			</table>	
 		</form>
 	</article >		
 

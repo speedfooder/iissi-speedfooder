@@ -4,10 +4,11 @@ create or replace procedure addAlergenos (w_nom alergenos.NOMBREALERGENO%type) a
         commit work;
     end addAlergenos;
 /
-create or replace procedure eliminaAlergenos(w_nom alergenos.NOMBREALERGENO%type)
+create or replace procedure eliminaAlergenos(w_id alergenos.IDALERGENO%type)
 as
     begin
-        delete from alergenos where NOMBREALERGENO=w_nom;
+        update alimentos set alergeno=null where alimentos.ALERGENO=w_id;
+        delete from alergenos where IDALERGENO=w_id;
     end eliminaAlergenos;
 /
 create or replace function muestraAlergenos (w_nom ALIMENTOS.NOMBREALIMENTO%TYPE)
