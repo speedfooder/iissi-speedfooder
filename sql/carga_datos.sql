@@ -58,7 +58,7 @@ execute inserta_plato('Montadito Mixto', to_number('2,5'));
 execute inserta_plato('Montadito Queso y Bacon', to_number('1,99'));
 execute inserta_plato('Montadito Pollo Plancha', to_number('3,5'));
 execute inserta_plato('Montadito Pollo Empanado', to_number('3,5'));
-execute inserta_plato('Montadito Jamon', to_number('2,80'));
+execute inserta_plato('Montadito Jamon', to_number('2,8'));
 execute inserta_plato('Empanada Vegetal', to_number('2,0'));
 execute inserta_plato('Empanada Mixta', to_number('2,5'));
 
