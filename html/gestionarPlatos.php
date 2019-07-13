@@ -57,4 +57,16 @@ function actualiza_precio_plato($conexion,$idplato,$nombrePlato, $precioPlato) {
 		return $e->getMessage();
     }
 }
+
+function elimina_alimento($conexion,$idalimento) {
+	try {
+		$stmt=$conexion->prepare('CALL deleteAlimento(:idalimento)');
+		$stmt->bindParam(':idalimento',$idalimento);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
+
 ?>

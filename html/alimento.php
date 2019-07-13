@@ -38,7 +38,9 @@ unset($_SESSION["paginacion"]);
 
 $conexion = crearConexionBD();
 
-	$query=	"SELECT DISTINCT NOMBREALIMENTO, NOMBRE FROM ALIMENTOS,PLATOSALIMENTOS, PROVEEDORES WHERE PLATOSALIMENTOS.IDPLATO=" . $plato1["IDPLATO"]
+	$query=	"SELECT DISTINCT ALIMENTOS.IDALIMENTO, NOMBREALIMENTO, NOMBRE 
+	FROM ALIMENTOS,PLATOSALIMENTOS, PROVEEDORES 
+	WHERE PLATOSALIMENTOS.IDPLATO=" . $plato1["IDPLATO"]
 		 ." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND PROVEEDORES.EIN = ALIMENTOS.PROCEDENCIA"
 		 . " ORDER BY NOMBREALIMENTO";
 		
@@ -69,7 +71,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 <head>
 	<meta charset="utf-8">
-	<title>Menu</title>
+	<title>Consulta tus alimentos</title>
 	<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Overpass" rel="stylesheet">
 	<script src="../js/menu_popup.js" type="text/javascript"></script>
 	<link rel="stylesheet" type="text/css" href="../css/menu.css">
@@ -126,6 +128,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 	<?php
 
 		foreach($filas as $fila) {
+			
 
 	?>
 
@@ -133,7 +136,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 	<article >
 
-		<form method="post" class="plato" action="controlador_platos.php">
+		<form method="get" class="plato" action="controlador_alimentos.php">
 		
 
 			<input id="IDALIMENTO" name="IDALIMENTO"
@@ -148,17 +151,23 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 				type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 		
-		<table>
-				<tr>
-				<th class="columnas">
-
-						<!-- mostrando alimento -->
-						<div><b><?php echo $fila["NOMBREALIMENTO"]; ?></b></div>
-				</th>
-				<th  class="columnas">
-						<div><em><?php echo $fila["NOMBRE"]; ?></em></div>
-				</th>
-		
+			<table>
+					<tr>
+						<th class="columnas">
+								<div><b><?php echo $fila["NOMBREALIMENTO"]; ?></b></div>
+						</th>
+						<th  class="columnas">
+								<div><em><?php echo $fila["NOMBRE"]; ?></em></div>
+						</th>
+						<th class="c-icono">
+							<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
+								<button id="delete" name="deleteAlimento" type="submit">
+									<img src="../images/ic-delete.png">
+								</button>
+							<?php }?>
+						</th>
+					</tr>	
+			</table>		
 		</form>
 	</article >		
 

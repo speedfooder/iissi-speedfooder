@@ -19,9 +19,10 @@ create or replace procedure actualizaCantidad(w_nom ALIMENTOS.NOMBREALIMENTO%typ
     end
 ;
 /
-create or replace procedure deleteAlimento (w_nom ALIMENTOS.NOMBREALIMENTO%type) as
+create or replace procedure deleteAlimento (w_id ALIMENTOS.idalimento%type) as
     begin
-        DELETE FROM alimentos WHERE NOMBREALIMENTO=w_nom;
+        DELETE FROM platosalimentos WHERE platosalimentos.idalimento=w_id;
+        DELETE FROM alimentos WHERE IDALIMENTO=w_id;
     end;
 /
 
