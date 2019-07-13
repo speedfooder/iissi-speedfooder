@@ -49,8 +49,8 @@ function actualiza_precio_plato($conexion,$idplato,$nombrePlato, $precioPlato) {
 	try {
 		$stmt=$conexion->prepare('CALL ACTUALIZA_PRECIO_PLATO(:idplato,:precioPlato)');
 		$stmt->bindParam(':idplato',$idplato);
-		//$stmt->bindParam(':nombrePlato',$nombrePlato);
-		$stmt->bindParam(':precioPlato',$precioPlato);
+		$k=(string)$precioPlato;
+		$stmt->bindParam(':precioPlato',$k);
 		$stmt->execute();
 		return "";
 	} catch(PDOException $e) {
