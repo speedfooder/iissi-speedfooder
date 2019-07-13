@@ -16,7 +16,7 @@
 			$_SESSION["opcion"]=2;
 			Header("Location: alimento.php");
 		}
-		else if (isset($_REQUEST["deleteAlimento"])) Header("Location: accion_borrar_alimento.php");
+		else if (isset($_REQUEST["deleteAlimento"])) Header("Location:accion_borrar_alimento.php");
 		else if (isset($_REQUEST["grabarAlimento"])) Header("Location: accion_modificar_alimento.php");
 		else if (isset($_REQUEST["grabarProcAlimento"])) Header("Location: accion_modificar_procedencia.php");
 	}

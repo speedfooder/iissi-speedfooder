@@ -3,8 +3,7 @@
 	
 	if (isset($_SESSION["plato"])) {
 		$plato = $_SESSION["plato"];
-		unset($_SESSION["plato"]);
-		
+				
 		require_once("gestionBD.php");
 		require_once("gestionarPlatos.php");
 		
@@ -14,11 +13,11 @@
 			
 		if ($excepcion<>"") {
 			$_SESSION["excepcion"] = $excepcion;
-			$_SESSION["destino"] = "menu.php";
+			$_SESSION["destino"] = "alimento.php";
 			Header("Location: excepcion.php");
 		}
 		else
-			Header("Location: menu.php");
+			Header("Location: alimento.php");
 	} 
-	else Header("Location: menu.php"); // Se ha tratado de acceder directamente a este PHP
+	else Header("Location: alimento.php"); // Se ha tratado de acceder directamente a este PHP
 ?>
