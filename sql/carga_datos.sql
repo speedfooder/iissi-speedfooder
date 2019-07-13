@@ -51,16 +51,16 @@ execute elimina_plato('Montadito Jamon');
 execute elimina_plato('Empanada Vegetal');
 execute elimina_plato('Empanada Mixta');
 
-execute inserta_plato('Montadito Lomo', 1);
-execute inserta_plato('Serranito', 2);
-execute inserta_plato('Montadito Vegetal con queso', 2);
-execute inserta_plato('Montadito Mixto', 1);
-execute inserta_plato('Montadito Queso y Bacon', 2);
-execute inserta_plato('Montadito Pollo Plancha', 2);
-execute inserta_plato('Montadito Pollo Empanado', 2);
-execute inserta_plato('Montadito Jamon', 2);
-execute inserta_plato('Empanada Vegetal', 3);
-execute inserta_plato('Empanada Mixta', 3);
+execute inserta_plato('Montadito Lomo', to_number('1,5'));
+execute inserta_plato('Serranito', to_number('2,0'));
+execute inserta_plato('Montadito Vegetal con queso', to_number('2,0'));
+execute inserta_plato('Montadito Mixto', to_number('2,5'));
+execute inserta_plato('Montadito Queso y Bacon', to_number('1,99'));
+execute inserta_plato('Montadito Pollo Plancha', to_number('3,5'));
+execute inserta_plato('Montadito Pollo Empanado', to_number('3,5'));
+execute inserta_plato('Montadito Jamon', to_number('2,80'));
+execute inserta_plato('Empanada Vegetal', to_number('2,0'));
+execute inserta_plato('Empanada Mixta', to_number('2,5'));
 
 /* PROVEEDORES */
 execute deleteProvider('Horno La Parra');
