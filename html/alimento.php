@@ -8,14 +8,15 @@ require_once ("paginacion_consulta.php");
 
 
 if (isset($_SESSION["plato"])) {
-			$plato1 = $_SESSION["plato"];
-		unset($_SESSION["plato"]);
-		$_SESSION["platotrabajo"]=$plato1;
-	}else if (isset($_SESSION["platotrabajo"])){
+	$plato1 = $_SESSION["plato"];
+	unset($_SESSION["plato"]);
+	$_SESSION["platotrabajo"]=$plato1;
+}else if (isset($_SESSION["platotrabajo"])){
 	$plato1=$_SESSION["platotrabajo"];
 }else{
 	header ("Location: menu.php");
 }
+
 if (isset($_SESSION["paginacion"])){
 		$paginacion = $_SESSION["paginacion"];
 }
@@ -38,7 +39,7 @@ unset($_SESSION["paginacion"]);
 
 $conexion = crearConexionBD();
 
-	$query=	"SELECT DISTINCT ALIMENTOS.IDALIMENTO, NOMBREALIMENTO, NOMBRE,ALERGENO 
+	$query=	"SELECT DISTINCT ALIMENTOS.IDALIMENTO, NOMBREALIMENTO, NOMBRE, ALERGENO 
 	FROM ALIMENTOS,PLATOSALIMENTOS, PROVEEDORES 
 	WHERE PLATOSALIMENTOS.IDPLATO=" . $plato1["IDPLATO"]
 		 ." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND PROVEEDORES.EIN = ALIMENTOS.PROCEDENCIA"
@@ -129,7 +130,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 		foreach($filas as $fila) {
 			
-
+			print_r($fila);
 	?>
 
 
@@ -150,6 +151,9 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 			<input id="PROCEDENCIA" name="PROCEDENCIA"
 
 				type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+			<input id="ALERGENO" name="ALERGENO"
+				
+				type="hidden" value="<?php echo $fila["ALERGENO"]?>"/>
 		
 			<table>
 					<tr>
@@ -161,6 +165,13 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						</th>
 						<th class="c-icono">
 							<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
+
+								<button id="editar" name="editAlimento" type="submit">
+									<img src="../images/ic-edit.png">
+								</button>
+								
+								<?php ?>
+
 								<button id="delete" name="deleteAlimento" type="submit">
 									<img src="../images/ic-delete.png">
 								</button>

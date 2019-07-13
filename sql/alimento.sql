@@ -26,3 +26,10 @@ create or replace procedure deleteAlimento (w_id ALIMENTOS.idalimento%type) as
     end;
 /
 
+create or replace procedure cambianombrealimento(w_id ALIMENTOS.idalimento%type,w_name ALIMENTOS.NOMBREALIMENTO%TYPE) as
+    begin
+        UPDATE ALIMENTOS
+        SET NOMBREALIMENTO=w_name
+        WHERE IDALIMENTO=w_id;
+    end;
+/
