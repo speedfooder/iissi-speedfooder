@@ -8,8 +8,14 @@ require_once ("paginacion_consulta.php");
 
 
 if (isset($_SESSION["plato"])) {
-		$plato = $_SESSION["plato"];
-	}
+		$plato1 = $_SESSION["plato"];
+		unset($_SESSION["plato"]);
+		$_SESSION["platotrabajo"]=$plato1;
+	}else if (isset($_SESSION["platotrabajo"])){
+	$plato1=$_SESSION["platotrabajo"];
+}else{
+	header ("Location: menu.php");
+}
 if (isset($_SESSION["alimento"])) {
 		$alimento = $_SESSION["alimento"];
 		unset($_SESSION["alimento"]);
@@ -37,7 +43,7 @@ unset($_SESSION["paginacion"]);
 
 $conexion = crearConexionBD();
 
-$query=	"SELECT DISTINCT ALIMENTOS.IDALIMENTO, NOMBREALIMENTO, NOMBRE FROM ALIMENTOS,PLATOSALIMENTOS, PROVEEDORES WHERE PLATOSALIMENTOS.IDPLATO=" . $plato["IDPLATO"]
+$query=	"SELECT DISTINCT ALIMENTOS.IDALIMENTO, NOMBREALIMENTO, NOMBRE FROM ALIMENTOS,PLATOSALIMENTOS, PROVEEDORES WHERE PLATOSALIMENTOS.IDPLATO=" . $plato1["IDPLATO"]
 	 ." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND PROVEEDORES.EIN = ALIMENTOS.PROCEDENCIA"
 	 . " ORDER BY NOMBREALIMENTO";
 		
@@ -178,7 +184,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 <?php } ?>
 
 <?php
-	if (isset($alimento) and $option==2 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+	if (isset($alimento) and isset($option) and $option==2 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
 
 		<!-- Editando procedencia -->
 
@@ -195,7 +201,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 <?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
 					
 						
-			<?php if (isset($alimento) and $option==1 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+			<?php if (isset($alimento) and isset($option) and $option==1 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
 
 					<button id="grabar" name="grabarAlimento" type="submit" class="editar_fila">
 
@@ -213,7 +219,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 			<?php } ?>
 
-			<?php if (isset($alimento) and $option==2 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
+			<?php if (isset($alimento) and isset($option) and $option==2 and ($alimento["IDALIMENTO"] == $fila["IDALIMENTO"])) { ?>
 
 					<button id="grabar" name="grabarProcAlimento" type="submit" class="editar_fila">
 
