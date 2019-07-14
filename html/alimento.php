@@ -142,7 +142,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 	<article >
 
-		<form method="post" class="plato" action="debug.php">
+		<form method="post" class="plato" action="controlador_alimentos.php">
 		
 
 			<input id="IDALIMENTO" name="IDALIMENTO"

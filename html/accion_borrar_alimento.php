@@ -8,8 +8,9 @@
 		require_once("gestionBD.php");
 		require_once("gestionarPlatos.php");
 		
-		$conexion = crearConexionBD();		
-		$excepcion = elimina_alimento($conexion,$alimento["IDALIMENTO"]);
+		$conexion = crearConexionBD();
+		$id= (integer)$alimento["IDALIMENTO"];		
+		$excepcion = elimina_alimento($conexion,$id);
 		
 		cerrarConexionBD($conexion);
 			
