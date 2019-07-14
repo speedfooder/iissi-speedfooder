@@ -159,7 +159,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 			<input id="ALERGENO" name="ALERGENO"
 				
-				type="hidden" value="<?php echo $fila["ALERGENO"]?>"/>
+				type="hidden" value="<?php echo $fila["ALERGENO"]; ?>"/>
 		
 			<table>
 					<tr>
@@ -171,45 +171,45 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						</th>
 						<th class="c-icono">
 
-						<?php if (isset($alimento) and ($alimento["IDALIMENTO"]==$fila["IDALIMENTO"])) {?>					
+						<?php if (isset($alimento) and ($alimento["IDALIMENTO"]==$fila["IDALIMENTO"])) { ?>					
 							
 							<h3><input class="nombre" name="NOMBREALIMENTO" 
 								type="text" value="<?php echo $fila["NOMBREALIMENTO"]; ?>"/></h3>
 
-						<?php} else{?>
+						<?php} else { ?>
 
 							<input id="nombre" name="NOMBREALIMENTO" type="hidden" 
 								value="<?php echo $fila["NOMBREALIMENTO"]; ?>"/>
 
-						<?php}?>
+						<?php } ?>
 						<div id="botones_fila">
-							<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
+							<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') { ?>
 
-								<?php if (isset($alimento) and ($alimento["IDALIMENTO"]==$fila["IDALIMENTO"])) {?>
+								<?php if (isset($alimento) and ($alimento["IDALIMENTO"]==$fila["IDALIMENTO"])) { ?>
 
 									<button id="grabar" name="grabarAlimento" type="submit" class="editar_fila">
 										<img src="../images/ic-save.png" class="editar_fila" alt="Guardar modificación">
 									</button>
 
-								<?php} else{?>
+								<?php} else { ?>
 								
 									<button id="editar" name="editAlimento" type="submit">
 										<img src="../images/ic-edit.png">
 									</button>
 									
-								<?php}?>
+								<?php } ?>
 
-								<?php if($fila["ALERGENO"]!=""){?>
+								<?php if($fila["ALERGENO"]!=""){ ?>
 									<button id="alerg" name="alerg" type="submit">
 										<img src="../images/ic-alergeno.png">
 									</button>
-								<?php }?>
+								<?php } ?>
 
 								<button id="delete" name="deleteAlimento" type="submit">
 									<img src="../images/ic-delete.png">
 								</button>
-							<?php }?>
-							</div>
+						<?php } ?>
+						</div>
 						</th>
 
 					</tr>	
