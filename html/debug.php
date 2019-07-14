@@ -1,11 +1,24 @@
 <?php
- if (isset($_SESSION["alim"])){
-    $alimento = $_SESSION["alim"];
-    print_r($alimento);
-    echo("howdy estoy en el if");
+session_start();
+	
+if (isset($_REQUEST["IDALIMENTO"])){
 
-} 
-else{
-    echo ("no estas en el if");
+    $alimento["IDALIMENTO"] = $_REQUEST["IDALIMENTO"];
+    $alimento["NOMBREALIMENTO"] = $_REQUEST["NOMBREALIMENTO"];
+    $alimento["PROCEDENCIA"] = $_REQUEST["PROCEDENCIA"];
+    $alimento["ALERGENO"]=$_REQUEST;
+    
+    $_SESSION["alim"] = $alimento;
+    
+    print_r($alimento);
+    echo("===========================================================");
+    
+
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+    
 }
+else 
+    echo("you got yeeted by the request");
 ?>

@@ -137,7 +137,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 	<article >
 
-		<form method="get" class="plato" action="controlador_alimentos.php">
+		<form method="post" class="plato" action="debug.php">
 		
 
 			<input id="IDALIMENTO" name="IDALIMENTO"
@@ -151,6 +151,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 			<input id="PROCEDENCIA" name="PROCEDENCIA"
 
 				type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+
 			<input id="ALERGENO" name="ALERGENO"
 				
 				type="hidden" value="<?php echo $fila["ALERGENO"]?>"/>
@@ -169,8 +170,12 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 								<button id="editar" name="editAlimento" type="submit">
 									<img src="../images/ic-edit.png">
 								</button>
-								
-								<?php ?>
+
+								<?php if($fila["ALERGENO"]!=""){?>
+									<button id="alerg" name="alerg" type="submit">
+										<img src="../images/ic-alergeno.png">
+									</button>
+								<?php }?>
 
 								<button id="delete" name="deleteAlimento" type="submit">
 									<img src="../images/ic-delete.png">
