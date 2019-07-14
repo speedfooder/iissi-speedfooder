@@ -89,18 +89,18 @@ execute deleteAlimento('Queso en lonchas');
 execute deleteAlimento('Pollo - Plancha');
 execute deleteAlimento('Pollo - Empanado');
 
-execute addAlimento('Pan Montadito', 1, 2, DATE '2019-01-25', DATE '2019-02-25', 100);
-execute addAlimento('Hojaldre empanada', 1, 2, DATE '2019-01-25', DATE '2019-02-25', 70);
-execute addAlimento('Cerdo - Lomo', 2, null, DATE '2019-02-01', DATE '2019-02-25', 100);
-execute addAlimento('Cerdo - Jamon', 2, null, DATE '2019-02-01', DATE '2019-02-25', 70);
-execute addAlimento('Cerdo - Bacon', 2, null, DATE '2019-02-01', DATE '2019-02-25', 50);
-execute addAlimento('Lechuga', 4, null, DATE '2019-01-20', DATE '2019-01-30', 100);
-execute addAlimento('Cebolla', 4, null, DATE '2019-01-20', DATE '2019-01-30', 100);
-execute addAlimento('Tomate', 4, null, DATE '2019-01-20', DATE '2019-01-30', 100);
-execute addAlimento('Pimiento verde', 5, null, DATE '2019-01-20', DATE '2019-01-30', 100);
-execute addAlimento('Queso en lonchas', 3, 6, DATE '2019-01-25', DATE '2019-02-05', 100);
-execute addAlimento('Pollo - Plancha', 5, null, DATE '2019-02-01', DATE '2019-02-25', 50);
-execute addAlimento('Pollo - Empanado', 5, null, DATE '2019-02-01', DATE '2019-02-25', 50);
+execute addAlimento('Pan Montadito', 1, 2, DATE '2019-01-25', DATE '2020-02-25', 100);
+execute addAlimento('Hojaldre empanada', 1, 2, DATE '2019-01-25', DATE '2020-02-25', 70);
+execute addAlimento('Cerdo - Lomo', 2, null, DATE '2019-02-01', DATE '2020-02-25', 100);
+execute addAlimento('Cerdo - Jamon', 2, null, DATE '2019-02-01', DATE '2020-02-25', 70);
+execute addAlimento('Cerdo - Bacon', 2, null, DATE '2019-02-01', DATE '2020-02-25', 50);
+execute addAlimento('Lechuga', 4, null, DATE '2019-01-20', DATE '2020-01-30', 100);
+execute addAlimento('Cebolla', 4, null, DATE '2019-01-20', DATE '2020-01-30', 100);
+execute addAlimento('Tomate', 4, null, DATE '2019-01-20', DATE '2020-01-30', 100);
+execute addAlimento('Pimiento verde', 5, null, DATE '2019-01-20', DATE '2020-01-30', 100);
+execute addAlimento('Queso en lonchas', 3, 6, DATE '2019-01-25', DATE '2020-02-05', 100);
+execute addAlimento('Pollo - Plancha', 5, null, DATE '2019-02-01', DATE '2020-02-25', 50);
+execute addAlimento('Pollo - Empanado', 5, null, DATE '2019-02-01', DATE '2020-02-25', 50);
 
 
 /* RELACION PLATOS ALIMENTOS */
