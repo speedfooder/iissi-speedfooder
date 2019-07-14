@@ -17,6 +17,11 @@ if (isset($_SESSION["plato"])) {
 	header ("Location: menu.php");
 }
 
+if (isset($_SESSION["alimento"])) {
+	$alimento=$_SESSION["alimento"];
+	unset($_SESSION["alimento"]);
+}
+
 if (isset($_SESSION["paginacion"])){
 		$paginacion = $_SESSION["paginacion"];
 }
@@ -101,7 +106,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 			<?php } ?></li>
 		</ul>
-  </div>
+ 	 </div>
 
 
 		
@@ -165,11 +170,34 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 								<div><em><?php echo $fila["NOMBRE"]; ?></em></div>
 						</th>
 						<th class="c-icono">
+
+						<?php if (isset($alimento) and ($alimento["IDALIMENTO"]==$fila["IDALIMENTO"])) {?>					
+							
+							<h3><input class="nombre" name="NOMBREALIMENTO" 
+								type="text" value="<?php echo $fila["NOMBREALIMENTO"]; ?>"/></h3>
+
+						<?php} else{?>
+
+							<input id="nombre" name="NOMBREALIMENTO" type="hidden" 
+								value="<?php echo $fila["NOMBREALIMENTO"]; ?>"/>
+
+						<?php}?>
+						<div id="botones_fila">
 							<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
 
-								<button id="editar" name="editAlimento" type="submit">
-									<img src="../images/ic-edit.png">
-								</button>
+								<?php if (isset($alimento) and ($alimento["IDALIMENTO"]==$fila["IDALIMENTO"])) {?>
+
+									<button id="grabar" name="grabarAlimento" type="submit" class="editar_fila">
+										<img src="../images/ic-save.png" class="editar_fila" alt="Guardar modificación">
+									</button>
+
+								<?php} else{?>
+								
+									<button id="editar" name="editAlimento" type="submit">
+										<img src="../images/ic-edit.png">
+									</button>
+									
+								<?php}?>
 
 								<?php if($fila["ALERGENO"]!=""){?>
 									<button id="alerg" name="alerg" type="submit">
@@ -181,10 +209,17 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 									<img src="../images/ic-delete.png">
 								</button>
 							<?php }?>
+							</div>
 						</th>
+
 					</tr>	
+						
 			</table>		
 		</form>
-	</article >		
+		
+	</article >	
+	<?php } ?>
+</body>	
+</html>
 
-<?php } ?>	
+
