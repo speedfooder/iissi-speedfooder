@@ -135,7 +135,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 		foreach($filas as $fila) {
 			
-			print_r($fila);
+			
 	?>
 
 
@@ -184,7 +184,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						<?php } ?>
 						<div id="botones_fila">
 							<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') { ?>
-
+								<!--
 								<?php if (isset($alimento) and ($alimento["IDALIMENTO"]==$fila["IDALIMENTO"])) { ?>
 
 									<button id="grabar" name="grabarAlimento" type="submit" class="editar_fila">
@@ -198,7 +198,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 									</button>
 									
 								<?php } ?>
-
+									-->
 								<?php if($fila["ALERGENO"]!=""){ ?>
 									<button id="alerg" name="alerg" type="submit">
 										<img src="../images/ic-alergeno.png">

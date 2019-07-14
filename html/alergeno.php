@@ -147,9 +147,9 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 				</th>
 				<th class="c-icono">
 							<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
-								<button id="delete" name="deleteAlergeno" type="submit">
+								<!--<button id="delete" name="deleteAlergeno" type="submit">
 									<img src="../images/ic-delete.png">
-								</button>
+								</button> -->
 							<?php }?>
 						</th>
 					</tr>	
