@@ -193,7 +193,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 								<?php} else { ?>
 								
-									<button id="editar" name="editAlimento" type="submit">
+									<button id="editar" name="editAlimento" type="submit" class="editar_fila">
 										<img src="../images/ic-edit.png">
 									</button>
 									
