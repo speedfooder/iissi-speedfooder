@@ -8,8 +8,9 @@
 		require_once("gestionBD.php");
 		require_once("gestionarPlatos.php");
 		
-		$conexion = crearConexionBD();		
-		$excepcion = elimina_alergeno($conexion,$alergeno["IDALERGENO"]);
+		$conexion = crearConexionBD();
+		$id=(integer)$alergeno["IDALERGENO"];
+		$excepcion = elimina_alergeno($conexion,$id);
 		
 		cerrarConexionBD($conexion);
 			
