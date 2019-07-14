@@ -9,7 +9,7 @@
 		require_once("gestionarPlatos.php");
 		
 		$conexion = crearConexionBD();		
-		$excepcion = elimina_alergeno($conexion,$alimento["IDALERGENO"]);
+		$excepcion = elimina_alergeno($conexion,$alergeno["IDALERGENO"]);
 		
 		cerrarConexionBD($conexion);
 			

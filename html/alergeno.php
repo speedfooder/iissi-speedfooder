@@ -6,22 +6,16 @@ require_once ("gestionBD.php");
 require_once ("gestionarPlatos.php");
 require_once ("paginacion_consulta.php");
 
-
-if (isset($_SESSION["plato"])) {
-	$plato1 = $_SESSION["plato"];
-unset($_SESSION["plato"]);
-$_SESSION["platotrabajo"]=$plato1;
-}else if (isset($_SESSION["platotrabajo"])){
-$plato1=$_SESSION["platotrabajo"];
-}else{
-header ("Location: menu.php");
-}
 if (isset($_SESSION["paginacion"])){
 		$paginacion = $_SESSION["paginacion"];
 }
 if (isset($_SESSION["opcion"])){
 	$option=$_SESSION["opcion"];
 	unset($_SESSION["opcion"]);
+}
+if (isset($_SESSION["alimento"])) {
+	$alimento=$_SESSION["alimento"];
+	unset($_SESSION["alimento"]);
 }
 
 $pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
@@ -38,8 +32,8 @@ unset($_SESSION["paginacion"]);
 
 $conexion = crearConexionBD();
 
-$query=	"SELECT DISTINCT IDALERGENO,NOMBREALERGENO FROM ALIMENTOS,ALERGENOS, PLATOSALIMENTOS WHERE PLATOSALIMENTOS.IDPLATO=" 
-	. $plato1["IDPLATO"] ." AND PLATOSALIMENTOS.IDALIMENTO=ALIMENTOS.IDALIMENTO AND ALIMENTOS.ALERGENO = ALERGENOS.IDALERGENO";
+$query=	"SELECT DISTINCT IDALERGENO,NOMBREALERGENO FROM ALIMENTOS,ALERGENOS WHERE alergenos.idALERGENO="
+	. $alimento["ALERGENO"];
 		
 							
 

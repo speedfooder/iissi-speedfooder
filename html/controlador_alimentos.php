@@ -6,7 +6,7 @@
 		$alimento["IDALIMENTO"] = $_REQUEST["IDALIMENTO"];
 		$alimento["NOMBREALIMENTO"] = $_REQUEST["NOMBREALIMENTO"];
 		$alimento["PROCEDENCIA"] = $_REQUEST["PROCEDENCIA"];
-		$alimento["ALERGENO"]=$_REQUEST;
+		$alimento["ALERGENO"]=$_REQUEST["ALERGENO"];
 		
         $_SESSION["alimento"] = $alimento;
         
@@ -20,7 +20,7 @@
 			Header("Location: accion_modifica_alimento.php");
 		}
 		elseif (isset($_REQUEST["alerg"])) {
-			Header("Location: debug.php");
+			Header("Location: alergeno.php");
 		}
 		
 	}
