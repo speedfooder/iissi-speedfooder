@@ -69,7 +69,7 @@ body {
 	text-align: right;
 	text-transform: uppercase;
 	color: #efdfc4;
-	letter
+	
 }
 
 .btn-main-icon {
@@ -283,3 +283,31 @@ display: block-inline;
 	padding-right:10%;
 	width:40%;
 }
+
+h3#sub-info{
+  text-align: center;
+  font-family: 'Overpass', sans-serif;
+	font-size: 100%;
+	text-transform: uppercase;
+  display: block;
+  font-weight:normal;
+  
+	text-align: center;
+	text-transform: uppercase;
+	color: #efdfc4;
+}
+
+div#subcontent{
+  align-content: center;
+  width: 100%;
+ 
+}
+table, td.busquedawik{
+  align-content: center;
+  width: 100%;
+  border: 1px #3f3532;
+  text-align: center;
+  padding: 15px;
+
+}
+

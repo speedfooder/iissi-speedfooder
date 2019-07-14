@@ -128,7 +128,8 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 
 	<div>
-		<h2 class="menu-section-title">El <?php echo $alimento1["NOMBREALIMENTO"] ?> contiene el siguiente alérgeno:</h2>
+		<h2 class="menu-section-title">El <?php echo $alimento1["NOMBREALIMENTO"] ?> contiene el siguiente alérgeno: 
+		<?php echo $fila["NOMBREALERGENO"]; ?></h2>
 	</div>
 	
 	<article >
@@ -143,31 +144,36 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 			<input id="NOMBREALIMENTO" name="NOMBREALIMENTO"
 
 				type="hidden" value="<?php echo $fila["NOMBREALERGENO"]; ?>"/>
-		
-		<table>
 			
-			<!-- mostrando alimento -->
-			<tr id="alerg"><h3><?php echo $fila["NOMBREALERGENO"]; ?></h3></tr>
-			<tr>
-				<div  id="wiki">
-				<h3>Aquí puedes consultar más información acerca de <?php echo $fila["NOMBREALERGENO"]; ?></h3>
-				<!– Búsqueda wikipedia –>
-				<center>
-				<a title="Wikipedia" href="http://es.wikipedia.org/"><img src=http://upload.wikimedia.org/wikipedia/commons/0/04/Lemon_wiki_banner.jpg width="200" alt="logo de la wikipedia" /></a>
-				<form action="http://es.wikipedia.org/w/index.php?title=Especial:Buscar&search=" id="searchform" target="blank">
-				<table bgcolor="#FFFFFF"><tr><td>
-				<input  type="hidden" value="0" name="redirs" />
-				<input class="search-wiki" size="17" value="" name="search" placeholder="Búsqueda" autocomplete="off" />
-				<input class="search-wiki" type="hidden" value="Search" name="fulltext" />
-				<input class="search-wiki" type="submit" value="Buscar" />
-				</td></tr></table>
-				</form>
-				</center>
-				</div>
-			</tr>
-		</table>
-		
+			<div id="subcontent">
+				<h3 id="sub-info">Aquí puedes consultar más información acerca de "<?php echo $fila["NOMBREALERGENO"]; ?>" si tienes 
+			más dudas al respecto</h3>
+			</div>
 		</form>
-	</article >		
 
+	</article >	
+	<!--Busqueda de wikipedia -->
+	<table class="busquedawiki">
+		<tr>
+			<td class="busquedawiki">
+			<a title="Wikipedia" href="http://es.wikipedia.org/"><img src="http://upload.wikimedia.org/wikipedia/commons/0/04/Lemon_wiki_banner.jpg" 
+     			alt="logo de la wikipedia" /></a>
+			</td>	
+			<td class="busquedawiki">
+				<form action="http://es.wikipedia.org/w/index.php?title=Especial:Buscar&search=" id="searchform" target="blank">
+				<table>
+				<tr>
+					<td>
+						<input type="hidden" value="0" name="redirs" />
+						<input id="searchText" value="" name="search" placeholder="Búsqueda" autocomplete="off" />
+						<input type="hidden" value="Search" name="fulltext"/>
+						<input type="submit" value="Buscar" />
+					</td>
+				</tr>  
+				</table>
+				</form>
+			</td>
+		
+		</tr>
+	</table>
 <?php } ?>	
