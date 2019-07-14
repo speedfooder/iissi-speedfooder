@@ -159,7 +159,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 			<a title="Wikipedia" href="http://es.wikipedia.org/"><img src="http://upload.wikimedia.org/wikipedia/commons/0/04/Lemon_wiki_banner.jpg" 
      			alt="logo de la wikipedia" /></a>
 			</td>	
-			<td class="busquedawiki">
+			<td id="special">
 				<form action="http://es.wikipedia.org/w/index.php?title=Especial:Buscar&search=" id="searchform" target="blank">
 				<table>
 				<tr>

@@ -302,12 +302,16 @@ div#subcontent{
   width: 100%;
  
 }
-table, td.busquedawik{
-  align-content: center;
-  width: 100%;
+table, td .busquedawik{
+ 
+  
   border: 1px #3f3532;
   text-align: center;
   padding: 15px;
-
+  margin-left: 10%;
+  margin-right: 10%;
+}
+td#special{
+  text-align: left;
 }
 
