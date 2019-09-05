@@ -130,6 +130,9 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 			</form>
 		</div>
 		
+	<div>
+		<h2 class="menu-section-title"><?php echo $plato1["NOMBRE"] ?> contiene los siguientes alimentos: 
+	</div>
 		
 	<?php
 
@@ -137,8 +140,6 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 			
 			
 	?>
-
-
 
 	<article >
 
@@ -184,21 +185,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 						<?php } ?>
 						<div id="botones_fila">
 							<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') { ?>
-								<!--
-								<?php if (isset($alimento) and ($alimento["IDALIMENTO"]==$fila["IDALIMENTO"])) { ?>
-
-									<button id="grabar" name="grabarAlimento" type="submit" class="editar_fila">
-										<img src="../images/ic-save.png" class="editar_fila" alt="Guardar modificación">
-									</button>
-
-								<?php} else { ?>
 								
-									<button id="editar" name="editAlimento" type="submit" class="editar_fila">
-										<img src="../images/ic-edit.png">
-									</button>
-									
-								<?php } ?>
-									-->
 								<?php if($fila["ALERGENO"]!=""){ ?>
 									<button id="alerg" name="alerg" type="submit">
 										<img src="../images/ic-alergeno.png">
