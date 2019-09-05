@@ -269,7 +269,8 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 					<?php } ?>
 					
 					
-
+			
+			
 			<div id="botones_fila">
 
 			<?php if (isset($_SESSION['login']) && $_SESSION['login'] =='admin') {?>
@@ -295,6 +296,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 
 					
+					<?php if (!(isset($plato) and $option==1 and ($plato["IDPLATO"] == $fila["IDPLATO"]))) { ?>
 
 					<?php if (isset($plato) and $option==2 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
 
@@ -313,6 +315,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 					<?php } ?>		
 					
+				
 
 					<button id="aliment" name="aliment" type="submit">
 					<img src="../images/ic-food.png">
@@ -323,6 +326,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 					</button>
 
 				<?php }?>
+			<?php } ?>
 					
 				</div>
 				</th>
