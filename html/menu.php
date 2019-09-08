@@ -20,6 +20,10 @@ if (isset($_SESSION["paginacion"])){
 if (isset($_SESSION["opcion"])){
 	$option=$_SESSION["opcion"];
 	unset($_SESSION["opcion"]);
+	
+}
+else {
+	$option=0;
 }
 
 $pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
@@ -320,10 +324,21 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 					<button id="aliment" name="aliment" type="submit">
 					<img src="../images/ic-food.png">
 					</button>
-								
-					<button id="delete" name="delete" type="submit">
-					<img src="../images/ic-delete.png">
-					</button>
+						
+					<?php if (isset($plato) and $option!=0 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
+
+						<button id="delete" name="cancel" type="submit">
+						<img src="../images/ic-back.png">
+						</button>
+
+						<?php } else { ?>
+
+							<button id="delete" name="delete" type="submit">
+							<img src="../images/ic-delete.png">
+							</button>
+
+						<?php } ?>
+					
 
 				
 			<?php } ?>
