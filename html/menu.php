@@ -296,7 +296,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 
 
 					
-					<?php if (!(isset($plato) and $option==1 and ($plato["IDPLATO"] == $fila["IDPLATO"]))) { ?>
+					
 
 					<?php if (isset($plato) and $option==2 and ($plato["IDPLATO"] == $fila["IDPLATO"])) { ?>
 
@@ -325,7 +325,7 @@ $filas = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 					<img src="../images/ic-delete.png">
 					</button>
 
-				<?php }?>
+				
 			<?php } ?>
 					
 				</div>
